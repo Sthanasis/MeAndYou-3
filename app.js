@@ -71,6 +71,7 @@ function appendDivs(days){
         appendDate(item, i, 'create')
         appendTemp(item, i, 'create')
         appendIcon(item, i, 'create')
+        appendDescription(item, i, 'create')
     })
 }
 
@@ -81,6 +82,7 @@ function updateDivs(days){
         appendDate(days, i, 'update')
         appendTemp(days, i, 'update')
         appendIcon(days, i, 'update')
+        appendDescription(days, i, 'update')
     }
 }
 
@@ -122,6 +124,22 @@ function appendIcon(item, i , operation){
     } else {
         let icon = document.getElementById(`icon${i - 1}`)
         icon.src = iconUrl(days[i - 1].weather[0].icon)
+    }
+}
+
+function appendDescription(item, i , operation){
+    if(operation === 'create'){
+        console.log('Im in if')
+        let description = document.createElement('div')
+        let text = document.createTextNode(item.weather[0].description)
+        description.appendChild(text)
+        description.id = `description${i}`
+        description.className = 'descriptions'
+        document.getElementById(`div${i}`).appendChild(description)
+    } else {
+        console.log('Im in else')
+        let description = document.getElementById(`description${i - 1}`)
+        description.innerHTML = days[i - 1].weather[0].description
     }
 }
 
