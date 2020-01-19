@@ -55,6 +55,8 @@ function createDataObject(data){
 
 
 // Working On Div #title 
+// ===============================================================
+// Display City and Country Name
 function appendHeader(data, operation){
     if(operation === 'create'){
         let header = document.createElement('div')
@@ -74,7 +76,7 @@ function appendHeader(data, operation){
 // ================================================================
 // Update data on divs
 
-// create Divs and Append data
+// Create Divs to display data
 function appendDivs(days){
     days.forEach((item, i)=>{
         let column = document.createElement('div')
@@ -86,6 +88,8 @@ function appendDivs(days){
         appendDescription(item, i, 'create')
     })
 }
+
+// Update data on divs
 function updateDivs(days){
     const currentDiv = document.getElementById('flex-container')
     for (let i = 1; i < currentDiv.childNodes.length; i++) {
