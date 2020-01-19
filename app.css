@@ -6,8 +6,8 @@ body {
 }
 #flex-container {
     display: flex;
+    text-align: center;
     justify-content: space-evenly;
-    background-color: slategrey;
     width: 70vw;
     margin: 50px auto;
 }
