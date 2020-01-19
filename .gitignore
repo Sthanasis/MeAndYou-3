@@ -1,2 +1,4 @@
 prototype.png
 node_modules
+dist
+.cache
