@@ -20,8 +20,14 @@ function getTemperature(){
     if(query) {
         axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${query}&APPID=196d16292a50e2189701f534273cad52`)
         .then(response => {
-            createDataObject(response.data)
-            appendDivs(days)
+            if(days.length === 0){
+                createDataObject(response.data)
+                appendDivs(days)
+                console.log(days)
+            } else {
+                createDataObject(response.data)
+                updateDivs(days)
+            }
         }) 
         .catch(()=>alert('Please insert a valid city'))                   
     } else{
@@ -29,7 +35,7 @@ function getTemperature(){
     }
 }
 
-
+// create object from API call to get Data
 function createDataObject(data){
     days = []
     let currentDay = null
@@ -43,9 +49,7 @@ function createDataObject(data){
     })
     if(days.length === 6){
         days.pop(5)
-    }
-    // 
-    console.log(days)
+    } 
 }
 
 function convertToDay(date){
@@ -58,12 +62,54 @@ function getTime(date){
     return myTime
 }
 
+// Append data to divs
 function appendDivs(days){
-    days.forEach((item)=>{
-        let day = document.createElement('div')
-        let text = document.createTextNode(convertToDay(item.dt_txt))
-        day.appendChild(text)
-        day.id = day.innerHTML
-        document.getElementById('flex-container').appendChild(day)
+    days.forEach((item, i)=>{
+        let column = document.createElement('div')
+        column.id = `div${i}`
+        document.getElementById('flex-container').appendChild(column)
+        appendDate(item, i, 'create')
+        appendTemp(item, i, 'create')
     })
+}
+
+// Update data to already created divs
+function updateDivs(days){
+    const currentDiv = document.getElementById('flex-container')
+    for (let i = 1; i < currentDiv.childNodes.length; i++) {
+        appendDate(days, i, 'update')
+        appendTemp(days, i, 'update')
+    }
+}
+
+function appendDate(item, i,  operation){
+    if (operation === 'create') {
+            let day = document.createElement('div')
+            let text = document.createTextNode(convertToDay(item.dt_txt))
+            day.appendChild(text)
+            day.id = `day${i}`
+            day.className = 'days'
+            document.getElementById(`div${i}`).appendChild(day)
+    } else {
+            let day = document.getElementById(`day${i - 1}`)
+            day.innerHTML = convertToDay(days[i - 1].dt_txt)
+    }
+}
+
+function appendTemp(item, i,  operation){
+    if(operation === 'create'){
+        let temp = document.createElement('div')
+        let text = document.createTextNode(convertKelvinToCelsius(item.main.temp))
+        temp.appendChild(text)
+        temp.id = `temp${i}`
+        temp.className = 'temperatures'
+        document.getElementById(`div${i}`).appendChild(temp)
+    } else {
+        let temp = document.getElementById(`temp${i - 1}`)
+        temp.innerHTML = convertKelvinToCelsius(days[i - 1].main.temp)
+    }
+}
+
+function convertKelvinToCelsius(temp) {
+    return  `${Math.round(temp - 273.15)} \u2103`
 }
