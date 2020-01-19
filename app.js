@@ -23,7 +23,7 @@ function getTemperature(){
             if(days.length === 0){
                 createDataObject(response.data)
                 appendDivs(days)
-                console.log(days)
+                console.log(response.data)
             } else {
                 createDataObject(response.data)
                 updateDivs(days)
@@ -70,6 +70,7 @@ function appendDivs(days){
         document.getElementById('flex-container').appendChild(column)
         appendDate(item, i, 'create')
         appendTemp(item, i, 'create')
+        appendIcon(item, i, 'create')
     })
 }
 
@@ -79,6 +80,7 @@ function updateDivs(days){
     for (let i = 1; i < currentDiv.childNodes.length; i++) {
         appendDate(days, i, 'update')
         appendTemp(days, i, 'update')
+        appendIcon(days, i, 'update')
     }
 }
 
@@ -110,6 +112,23 @@ function appendTemp(item, i,  operation){
     }
 }
 
+function appendIcon(item, i , operation){
+    if(operation === 'create'){
+        let icon = document.createElement('img')
+        icon.src = iconUrl(item.weather[0].icon)
+        icon.id = `icon${i}`
+        icon.className = 'icons'
+        document.getElementById(`div${i}`).appendChild(icon)
+    } else {
+        let icon = document.getElementById(`icon${i - 1}`)
+        icon.src = iconUrl(days[i - 1].weather[0].icon)
+    }
+}
+
 function convertKelvinToCelsius(temp) {
     return  `${Math.round(temp - 273.15)} \u2103`
+}
+
+let iconUrl = (icon) => {
+    return `http://openweathermap.org/img/wn/${icon}@2x.png`
 }
