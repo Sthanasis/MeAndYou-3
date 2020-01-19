@@ -1,0 +1,19 @@
+{
+  "name": "weatherapp2.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel app.html",
+    "build": "parcel build app.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "axios": "^0.19.1",
+    "parcel-bundler": "^1.12.4"
+  }
+}

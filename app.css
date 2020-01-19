@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    background-size: cover;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgb(45, 253, 114) 100%) no-repeat fixed;
+}
+#flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: slategrey;
+    width: 70vw;
+    margin: 50px auto;
+}
+  
+.flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+}
