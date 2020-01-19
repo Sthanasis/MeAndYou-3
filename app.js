@@ -12,20 +12,21 @@ weekday[5]="Friday";
 weekday[6]="Saturday";
 
 button.addEventListener("click",()=>{
-    getTemperature()
+    callWeatherApi()
 })
 
-function getTemperature(){
+function callWeatherApi(){
     let query = document.getElementById('cityInput').value.trim()
     if(query) {
         axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${query}&APPID=196d16292a50e2189701f534273cad52`)
         .then(response => {
             if(days.length === 0){
                 createDataObject(response.data)
+                appendHeader(response.data, 'create')
                 appendDivs(days)
-                console.log(response.data)
             } else {
                 createDataObject(response.data)
+                appendHeader(response.data, 'update')
                 updateDivs(days)
             }
         }) 
@@ -52,17 +53,28 @@ function createDataObject(data){
     } 
 }
 
-function convertToDay(date){
-    let myDay = new Date(date.split(' '))
-    return weekday[myDay.getDay()]
+
+// Working On Div #title 
+function appendHeader(data, operation){
+    if(operation === 'create'){
+        let header = document.createElement('div')
+        let text = document.createTextNode(`${data.city.name}, ${data.city.country}`)
+        header.appendChild(text)
+        header.id = `header`
+        document.getElementById('title').appendChild(header)
+    } else {
+        let header = document.getElementById(`header`)
+        header.innerHTML = `${data.city.name}, ${data.city.country}`
+    }
 }
 
-function getTime(date){
-    let myTime = date.split(' ')[1]
-    return myTime
-}
 
-// Append data to divs
+
+// Working On Div #flex-container 
+// ================================================================
+// Update data on divs
+
+// create Divs and Append data
 function appendDivs(days){
     days.forEach((item, i)=>{
         let column = document.createElement('div')
@@ -74,8 +86,6 @@ function appendDivs(days){
         appendDescription(item, i, 'create')
     })
 }
-
-// Update data to already created divs
 function updateDivs(days){
     const currentDiv = document.getElementById('flex-container')
     for (let i = 1; i < currentDiv.childNodes.length; i++) {
@@ -129,7 +139,6 @@ function appendIcon(item, i , operation){
 
 function appendDescription(item, i , operation){
     if(operation === 'create'){
-        console.log('Im in if')
         let description = document.createElement('div')
         let text = document.createTextNode(item.weather[0].description)
         description.appendChild(text)
@@ -137,12 +146,20 @@ function appendDescription(item, i , operation){
         description.className = 'descriptions'
         document.getElementById(`div${i}`).appendChild(description)
     } else {
-        console.log('Im in else')
         let description = document.getElementById(`description${i - 1}`)
         description.innerHTML = days[i - 1].weather[0].description
     }
 }
 
+function convertToDay(date){
+    let myDay = new Date(date.split(' '))
+    return weekday[myDay.getDay()]
+}
+
+function getTime(date){
+    let myTime = date.split(' ')[1]
+    return myTime
+}
 function convertKelvinToCelsius(temp) {
     return  `${Math.round(temp - 273.15)} \u2103`
 }
