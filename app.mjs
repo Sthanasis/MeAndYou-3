@@ -1,4 +1,4 @@
-import {callWeatherApi } from './modules/data.mjs'
+import { callWeatherApi } from './modules/data.mjs'
 
 const button = document.getElementById('submitButton')
 
