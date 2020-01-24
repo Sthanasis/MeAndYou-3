@@ -48,4 +48,4 @@ function createDataObject(data){
 
 
 
-export { callWeatherApi, days, moreData }
+export { callWeatherApi, days }
