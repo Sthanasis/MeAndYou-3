@@ -4,7 +4,6 @@ import {convertToDay , getTime } from '../modules/methods.mjs'
 
 
 let days = []
-let moreData = []
 
 function callWeatherApi(){
     let query = document.getElementById('cityInput').value.trim()
@@ -14,11 +13,11 @@ function callWeatherApi(){
             if(days.length === 0){
                 createDataObject(response.data)
                 appendHeader(response.data, 'create')
-                appendDivs(days, moreData)
+                appendDivs(days, response.data.list)
             } else {
                 createDataObject(response.data)
                 appendHeader(response.data, 'update')
-                updateDivs(days, moreData)
+                updateDivs(days, response.data.list)
             }
         }) 
         .catch(()=>alert('Please insert a valid city'))                   
@@ -39,7 +38,6 @@ function createDataObject(data){
             currentDay = convertedDate 
             days.push(el)
         }
-        moreData.push(data.list[i]) // get all temperatures
     })
     if(days.length === 6){
         days.pop(5)
