@@ -1,8 +1,8 @@
 import { callWeatherApi } from './modules/data.mjs'
 
-const button = document.getElementById('submitButton')
+const submitBtn = document.getElementById('submitButton')
 
-button.addEventListener("click",()=>{
+submitBtn.addEventListener("click",()=>{
     callWeatherApi()
 })
 
