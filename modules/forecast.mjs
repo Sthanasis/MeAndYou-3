@@ -57,4 +57,40 @@ function appendDate(item, i,  operation){
     }
 }
 
-export { appendDate, appendDescription, appendIcon, appendTemp }
+function appendMoreDataToDivs(item, i, operation, moreData){
+    let currentDay = convertToDay(item.dt_txt)
+    let min = moreData[0].main.temp_min
+    let max = moreData[0].main.temp_max
+    moreData.forEach((el)=>{
+        if(currentDay === convertToDay(el.dt_txt)){
+            if(min > el.main.temp_min){
+                min = el.main.temp_min
+            }
+            if(max < el.main.temp_max){
+                max = el.main.temp_max
+            }
+        }
+    })
+    // now I have min and max for each day
+    if(operation === 'create') {
+        let min_temp = document.createElement('div')
+        let text = document.createTextNode(`Minimum temperature: ${convertKelvinToCelsius(min)}`)
+        min_temp.appendChild(text)
+        min_temp.id = `min_temp${i}`
+        min_temp.className = 'hidden'
+        document.getElementById(`div${i}`).appendChild(min_temp)
+        let max_temp = document.createElement('div')
+        text = document.createTextNode(`Maximum temperature: ${convertKelvinToCelsius(max)}`)
+        max_temp.appendChild(text)
+        max_temp.id = `max_temp${i}`
+        max_temp.className = 'hidden'
+        document.getElementById(`div${i}`).appendChild(max_temp)
+    } else {
+        let updatedMin = document.getElementById(`min_temp${i - 1}`)
+        let updatedMax = document.getElementById(`max_temp${i - 1}`)
+        updatedMin.innerHTML = `Minimum temperature: ${convertKelvinToCelsius(min)}`
+        updatedMax.innerHTML = `Maximum temperature: ${convertKelvinToCelsius(max)}`
+    }
+}
+
+export { appendDate, appendDescription, appendIcon, appendTemp, appendMoreDataToDivs }

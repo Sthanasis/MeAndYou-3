@@ -1,4 +1,4 @@
-import { appendDate, appendDescription, appendIcon, appendTemp } from '../modules/forecast.mjs'
+import { appendDate, appendDescription, appendIcon, appendTemp, appendMoreDataToDivs } from '../modules/forecast.mjs'
 
 // Working On Div #title 
 // ===============================================================
@@ -21,7 +21,7 @@ function appendHeader(data, operation){
 // Update data on divs
 
 // Create Divs to display data
-function appendDivs(days){
+function appendDivs(days, moreData){
     days.forEach((item, i)=>{
         let column = document.createElement('div')
         column.id = `div${i}`
@@ -30,18 +30,23 @@ function appendDivs(days){
         appendTemp(item, i, 'create')
         appendIcon(item, i, 'create')
         appendDescription(item, i, 'create')
+        appendMoreDataToDivs(item, i, 'create', moreData)
     })
 }
 
 // Update data on divs
-function updateDivs(days){
+function updateDivs(days, moreData){
     const currentDiv = document.getElementById('flex-container')
     for (let i = 1; i < currentDiv.childNodes.length; i++) {
         appendDate(days, i, 'update')
         appendTemp(days, i, 'update')
         appendIcon(days, i, 'update')
         appendDescription(days, i, 'update')
+        appendMoreDataToDivs(days[i - 1], i, 'update', moreData)
     }
 }
+
+
+
 
 export { appendHeader, appendDivs, updateDivs }
