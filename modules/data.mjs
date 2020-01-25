@@ -29,12 +29,11 @@ function callWeatherApi(){
 // create object from API call to get Data
 function createDataObject(data){
     days = []
-    moreData = []
     let currentDay = null
     let currentTime = getTime(data.list[0].dt_txt)
-    data.list.forEach((el , i)=>{
+    data.list.forEach((el)=>{
         let convertedDate = convertToDay(el.dt_txt)
-        if(currentDay !== convertedDate && currentTime === getTime(el.dt_txt) ){
+        if( currentDay !== convertedDate && currentTime === getTime(el.dt_txt) ){
             currentDay = convertedDate 
             days.push(el)
         }
