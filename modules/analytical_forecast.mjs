@@ -14,14 +14,14 @@ function appendMin(data ,i , operation){
     // now I have min for each day
     if(operation === 'create') {
         let min_temp = document.createElement('div')
-        let text = document.createTextNode(`${convertKelvinToCelsius(min)} - `)
+        let text = document.createTextNode(`${convertKelvinToCelsius(min)}`)
         min_temp.appendChild(text)
         min_temp.id = `min_temp${i}`
-        min_temp.className = 'hidden'
+        min_temp.className = 'min hidden'
         document.getElementById(`div${i}`).appendChild(min_temp)
     } else{
         let updatedMin = document.getElementById(`min_temp${i}`)
-        updatedMin.innerHTML = `${convertKelvinToCelsius(min)} - `
+        updatedMin.innerHTML = `${convertKelvinToCelsius(min)}`
     }
 }
 
@@ -41,7 +41,7 @@ function appendMax(data, i, operation){
         let text = document.createTextNode( ` - ${convertKelvinToCelsius(max)}`)
         max_temp.appendChild(text)
         max_temp.id = `max_temp${i}`
-        max_temp.className = 'hidden'
+        max_temp.className = 'max hidden'
         document.getElementById(`div${i}`).appendChild(max_temp)
     } else {
         console.log(max)
