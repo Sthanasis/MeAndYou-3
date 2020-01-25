@@ -28,11 +28,11 @@ function appendDivs(days, data){
         column.id = `div${i}`
         document.getElementById('flex-container').appendChild(column)
         appendDate(item, i, 'create')
-        appendTemp(item, i, 'create')
-        appendIcon(item, i, 'create')
-        appendDescription(item, i, 'create')
         appendMin(data, i ,'create')
         appendMax(data, i ,'create')
+        appendIcon(item, i, 'create')
+        appendDescription(item, i, 'create')
+        appendTemp(item, i, 'create')
     })
 }
 
@@ -40,11 +40,11 @@ function appendDivs(days, data){
 function updateDivs(days, data){
     for (let i = 0; i < days.length; i++) {
         appendDate(days, i, 'update')
-        appendTemp(days, i, 'update')
-        appendIcon(days, i, 'update')
-        appendDescription(days, i, 'update')
         appendMin(data, i , 'update')
         appendMax(data, i , 'update')
+        appendIcon(days, i, 'update')
+        appendDescription(days, i, 'update')
+        appendTemp(days, i, 'update')
     }
 }
 
