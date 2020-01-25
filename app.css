@@ -29,3 +29,7 @@ body {
 .hidden {
     float: left;
 }
+
+.min{
+    margin-left: 30%;
+}
