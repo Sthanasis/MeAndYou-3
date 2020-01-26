@@ -11,12 +11,12 @@ body {
     margin: 50px auto;
 }
   
-.flex-container > div {
-    background-color: #f1f1f1;
+/* #flex-container > div {
+    background-color: #f1f1f1c5;
     margin: 10px;
     padding: 20px;
     font-size: 30px;
-}
+} */
 
 #submitButton {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -31,5 +31,13 @@ body {
 }
 
 .min{
-    margin-left: 30%;
+    margin-left: 20%;
+}
+
+#more_Info {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 70vw;
+    margin: 50px auto;
 }
