@@ -1,9 +1,8 @@
-import { appendDate, appendDescription, appendIcon, appendTemp } from '../modules/forecast.mjs'
-import { appendMin, appendMax } from '../modules/analytical_forecast.mjs'
+import { appendDate, appendDescription, appendIcon, appendMinTemp, appendMaxTemp} from '../modules/forecast.mjs'
 
 // Working On Div #title 
 // ===============================================================
-// Display City and Country Name
+// Display City name and Country code
 function appendHeader(data, operation){
     if(operation === 'create'){
         let header = document.createElement('div')
@@ -19,7 +18,6 @@ function appendHeader(data, operation){
 
 // Working On Div #flex-container 
 // ================================================================
-// Update data on divs
 
 // Create Divs to display data
 function appendDivs(days, data){
@@ -27,26 +25,23 @@ function appendDivs(days, data){
         let column = document.createElement('div')
         column.id = `div${i}`
         document.getElementById('flex-container').appendChild(column)
-        appendDate(item, i, 'create')
-        appendMin(data, i ,'create')
-        appendMax(data, i ,'create')
-        appendIcon(item, i, 'create')
-        appendDescription(item, i, 'create')
-        appendTemp(item, i, 'create')
+        appendDate(item, i, 'create','div')
+        appendMinTemp(data, i ,'create', 'div')
+        appendMaxTemp(data, i ,'create', 'div')
+        appendIcon(item, i, 'create', 'div')
+        appendDescription(item, i, 'create', 'div')
     })
 }
 
 // Update data on divs
 function updateDivs(days, data){
     for (let i = 0; i < days.length; i++) {
-        appendDate(days, i, 'update')
-        appendMin(data, i , 'update')
-        appendMax(data, i , 'update')
-        appendIcon(days, i, 'update')
-        appendDescription(days, i, 'update')
-        appendTemp(days, i, 'update')
+        appendDate(days, i, 'update','div')
+        appendMinTemp(data, i , 'update','div')
+        appendMaxTemp(data, i , 'update','div')
+        appendIcon(days, i, 'update','div')
+        appendDescription(days, i, 'update','div')
     }
 }
-
 
 export { appendHeader, appendDivs, updateDivs }
