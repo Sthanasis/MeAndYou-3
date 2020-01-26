@@ -1,5 +1,5 @@
-import { convertToDay, getTime } from '../modules/methods.mjs'
-import { appendTemp } from '../modules/forecast.mjs'
+import { convertToDay } from '../modules/methods.mjs'
+import { appendTemp, appendTime } from '../modules/forecast.mjs'
 
 
 function appendSth(days, data){
@@ -10,6 +10,7 @@ function appendSth(days, data){
         let currentDay = convertToDay(day.dt_txt)
         data.forEach(item => {
             if (currentDay === convertToDay(item.dt_txt)){
+                appendTime(item , i , 'create', 'analytics')
                 appendTemp(item , i , 'create', 'analytics')
             }
         });

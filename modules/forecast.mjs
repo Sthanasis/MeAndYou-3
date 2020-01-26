@@ -119,4 +119,4 @@ function appendTime(item, i , operation , div){
     }
 }
 
-export { appendDate, appendDescription, appendIcon, appendMinTemp, appendMaxTemp, appendTemp }
+export { appendDate, appendDescription, appendIcon, appendMinTemp, appendMaxTemp, appendTemp, appendTime }
