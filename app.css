@@ -27,10 +27,11 @@ body {
 }
 
 .hidden {
-    float: left;
+    
 }
 
 .min{
+    float: left;
     margin-left: 20%;
 }
 
