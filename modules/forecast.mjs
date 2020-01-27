@@ -13,7 +13,7 @@ function appendDate(item, i,  operation, div){
         document.getElementById(div).appendChild(day)
     } else {
         let day = document.getElementById(`day${i}`)
-        day.innerHTML = convertToDay(days[i].dt_txt)
+        day.innerHTML = convertToDay(item.dt_txt)
     }
 }
 

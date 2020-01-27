@@ -1,4 +1,4 @@
-import { appendDate, appendDescription, appendIcon, appendMinTemp, appendMaxTemp} from '../modules/forecast.mjs'
+import { appendDate, appendDescription, appendIcon, appendMinTemp, appendMaxTemp} from './forecast.mjs'
 
 // Working On Div #title 
 // ===============================================================
@@ -25,22 +25,22 @@ function appendDivs(days, data){
         let column = document.createElement('div')
         column.id = `div${i}`
         document.getElementById('flex-container').appendChild(column)
-        appendDate(item, i, 'create','div')
-        appendMinTemp(data, i ,'create', 'div')
-        appendMaxTemp(data, i ,'create', 'div')
-        appendIcon(item, i, 'create', 'div')
-        appendDescription(item, i, 'create', 'div')
+        appendDate(item, i, 'create',`div${i}`)
+        appendMinTemp(data, i ,'create', `div${i}`)
+        appendMaxTemp(data, i ,'create', `div${i}`)
+        appendIcon(item, i, 'create', 'appendDivs', `div${i}`)
+        appendDescription(item, i, 'create','appendDivs', `div${i}`)
     })
 }
 
 // Update data on divs
 function updateDivs(days, data){
     for (let i = 0; i < days.length; i++) {
-        appendDate(days, i, 'update','div')
-        appendMinTemp(data, i , 'update','div')
-        appendMaxTemp(data, i , 'update','div')
-        appendIcon(days, i, 'update','div')
-        appendDescription(days, i, 'update','div')
+        appendDate(days[i], i, 'update')
+        appendMinTemp(data, i , 'update')
+        appendMaxTemp(data, i , 'update')
+        appendIcon(days[i], i,  'update', 'updateDivs')
+        appendDescription(days[i], i, 'update','updateDivs')
     }
 }
 
