@@ -1,7 +1,7 @@
 import axios from 'axios' 
-import { appendDivs, appendHeader, updateDivs } from '../modules/partials.mjs'
-import { convertToDay , getTime } from '../modules/methods.mjs'
-import { appendSth } from '../modules/analytical_forecast.mjs' 
+import { appendDivs, appendHeader, updateDivs } from './partials.mjs'
+import { convertToDay , getTime } from './methods.mjs'
+import { appendAnalytics, updateAnalytics } from './analytical_partials.mjs' 
 
 let days = []
 
@@ -15,14 +15,14 @@ function callWeatherApi(){
                 createDataObject(response.data)
                 appendHeader(response.data, 'create')
                 appendDivs(days, response.data.list)
-                appendSth(days, response.data.list)
-                console.log(response.data.list)
-
+                appendAnalytics(days, response.data.list)
+                
             } else {
                 
                 createDataObject(response.data)
                 appendHeader(response.data, 'update')
                 updateDivs(days, response.data.list)
+                updateAnalytics(days, response.data.list)
 
             }
         }) 
