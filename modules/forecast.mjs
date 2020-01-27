@@ -1,17 +1,19 @@
-import { convertToDay, convertKelvinToCelsius , iconUrl, getTime } from '../modules/methods.mjs'
-import { days } from '../modules/data.mjs' 
+import { convertToDay, convertKelvinToCelsius , iconUrl, getTime } from './methods.mjs'
+import { days } from './data.mjs' 
 
-function appendTemp(item, i,  operation, div){
-    if(operation === 'create'){
-        let temp = document.createElement('div')
-        let text = document.createTextNode(convertKelvinToCelsius(item.main.temp))
-        temp.appendChild(text)
-        temp.id = `temp${i}`
-        temp.className = 'temperatures'
-        document.getElementById(`${div}${i}`).appendChild(temp)
+
+// forecast for partials.mjs
+function appendDate(item, i,  operation, div){
+    if (operation === 'create') {
+        let day = document.createElement('div')
+        let text = document.createTextNode(convertToDay(item.dt_txt))
+        day.appendChild(text)
+        day.id = `day${i}`
+        day.className = 'days'
+        document.getElementById(div).appendChild(day)
     } else {
-        let temp = document.getElementById(`temp${i}`)
-        temp.innerHTML = convertKelvinToCelsius(item[i].main.temp)
+        let day = document.getElementById(`day${i}`)
+        day.innerHTML = convertToDay(days[i].dt_txt)
     }
 }
 
@@ -31,8 +33,8 @@ function appendMinTemp(data ,i , operation, div){
         let text = document.createTextNode(`${convertKelvinToCelsius(min)}`)
         min_temp.appendChild(text)
         min_temp.id = `min_temp${i}`
-        min_temp.className = 'min hidden'
-        document.getElementById(`${div}${i}`).appendChild(min_temp)
+        min_temp.className = 'min'
+        document.getElementById(div).appendChild(min_temp)
     } else{
         let updatedMin = document.getElementById(`min_temp${i}`)
         updatedMin.innerHTML = `${convertKelvinToCelsius(min)}`
@@ -55,55 +57,75 @@ function appendMaxTemp(data, i, operation, div){
         let text = document.createTextNode( ` - ${convertKelvinToCelsius(max)}`)
         max_temp.appendChild(text)
         max_temp.id = `max_temp${i}`
-        max_temp.className = 'max hidden'
-        document.getElementById(`${div}${i}`).appendChild(max_temp)
+        max_temp.className = 'max'
+        document.getElementById(div).appendChild(max_temp)
     } else {
         let updatedMax = document.getElementById(`max_temp${i}`)
         updatedMax.innerHTML = ` - ${convertKelvinToCelsius(max)}`
     }
 }
 
-function appendIcon(item, i , operation, div){
+function appendIcon(item, i , operation, method, div){
     if(operation === 'create'){
         let icon = document.createElement('img')
         icon.src = iconUrl(item.weather[0].icon)
-        icon.id = `icon${i}`
-        icon.className = 'icons'
-        document.getElementById(`${div}${i}`).appendChild(icon)
+        if(method === 'appendDivs'){
+            icon.id = `icon${i}`
+            icon.className = 'icons'
+        } else {
+            icon.id = `analyticIcon${i}`
+            icon.className = 'analyticIcons'
+        }
+        document.getElementById(div).appendChild(icon)
     } else {
-        let icon = document.getElementById(`icon${i}`)
-        icon.src = iconUrl(days[i].weather[0].icon)
+        if(method === 'updateDivs'){
+            let icon = document.getElementById(`icon${i}`)
+            icon.src = iconUrl(item.weather[0].icon)
+        } else {
+            let icon = document.getElementById(`analyticIcon${i}`)
+            icon.src = iconUrl(item.weather[0].icon)
+        }
     }
 }
 
-function appendDescription(item, i , operation, div){
+function appendDescription(item, i , operation, method, div){
     if(operation === 'create'){
         let description = document.createElement('div')
         let text = document.createTextNode(item.weather[0].description)
         description.appendChild(text)
-        description.id = `description${i}`
-        description.className = 'descriptions'
-        document.getElementById(`${div}${i}`).appendChild(description)
+        if(method === 'appendDivs'){
+            description.id = `description${i}`
+            description.className = 'descriptions'
+        } else {
+            description.id = `analyticDescription${i}`
+            description.className = 'analyticDescriptions'
+        }
+        document.getElementById(div).appendChild(description)
     } else {
-        let description = document.getElementById(`description${i}`)
-        description.innerHTML = days[i].weather[0].description
+        if(method === 'updateDivs'){
+            let description = document.getElementById(`description${i}`)
+            description.innerHTML = item.weather[0].description
+        } else {
+            let description = document.getElementById(`analyticDescription${i}`)
+            description.innerHTML = item.weather[0].description
+        }
     }
 }
 
-function appendDate(item, i,  operation, div){
-    if (operation === 'create') {
-        let day = document.createElement('div')
-        let text = document.createTextNode(convertToDay(item.dt_txt))
-        day.appendChild(text)
-        day.id = `day${i}`
-        day.className = 'days'
-        document.getElementById(`${div}${i}`).appendChild(day)
+// forecast for analytical_partials.mjs
+function appendTemp(item, i,  operation, div){
+    if(operation === 'create'){
+        let temp = document.createElement('div')
+        let text = document.createTextNode(convertKelvinToCelsius(item.main.temp))
+        temp.appendChild(text)
+        temp.id = `temp${i}`
+        temp.className = 'temperatures'
+        document.getElementById(div).appendChild(temp)
     } else {
-        let day = document.getElementById(`day${i}`)
-        day.innerHTML = convertToDay(days[i].dt_txt)
+        let temp = document.getElementById(`temp${i}`)
+        temp.innerHTML = convertKelvinToCelsius(item.main.temp)
     }
 }
-
 
 function appendTime(item, i , operation , div){
     if (operation === 'create'){
@@ -112,11 +134,25 @@ function appendTime(item, i , operation , div){
         time.appendChild(text)
         time.id = `time${i}`
         time.className = 'time'
-        document.getElementById(`${div}${i}`).appendChild(time)
+        document.getElementById(div).appendChild(time)
     } else {
         let time = document.getElementById(`time${i}`)
         time.innerHTML = getTime(item.dt_txt)
     }
 }
 
-export { appendDate, appendDescription, appendIcon, appendMinTemp, appendMaxTemp, appendTemp, appendTime }
+function appendFeelsLikeTemp(item, i,  operation, div){
+    if(operation === 'create'){
+        let temp = document.createElement('div')
+        let text = document.createTextNode( ` feelsLike: ${convertKelvinToCelsius(item.main.feels_like)}`)
+        temp.appendChild(text)
+        temp.id = `feelsLike${i}`
+        temp.className = 'feelsLike'
+        document.getElementById(div).appendChild(temp)
+    } else {
+        let temp = document.getElementById(`feelsLike${i}`)
+        temp.innerHTML = ` feelsLike: ${convertKelvinToCelsius(item.main.feels_like)}`
+    }
+}
+
+export { appendDate, appendDescription, appendIcon, appendMinTemp, appendMaxTemp, appendTemp, appendTime, appendFeelsLikeTemp }
