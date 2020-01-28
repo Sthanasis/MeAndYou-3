@@ -9,8 +9,8 @@ function appendAnalytics(days, data){
         column.id = `analytics${i}`
         column.className = 'analytics'
         document.getElementById('more_Info').appendChild(column)
-        let currentDay = convertToDay(day.dt_txt)
         appendDate(day, i,  'create' , 'appendAnalytics',`analytics${i}`)
+        let currentDay = convertToDay(day.dt_txt)
         data.forEach(item => {
             if (currentDay === convertToDay(item.dt_txt)){
                 let div = document.createElement('div')
