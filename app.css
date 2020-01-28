@@ -1,39 +1,68 @@
 body {
-    margin: 0;
-    background-size: cover;
-    background: linear-gradient(0deg, rgb(249, 252, 250) 0%, rgba(34,193,195,1) 90%) no-repeat fixed;
+    background-color: black;
+    overflow: hidden;
 }
+
+input[type=text] {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding-top: 40vh;
+    margin-left: 46%;
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    border-color:#333;
+}
+
+input[type=submit] {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding: 5px 15px;
+    margin-left: 48.5%;
+    margin-top: 1%; 
+    background:rgb(255, 255, 255); 
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+input[type=submit]:hover{
+    background-color: rgb(97, 152, 224);
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 #flex-container {
+    z-index: 1;
+    position: relative;
     display: flex;
     text-align: center;
     justify-content: space-evenly;
     width: 70vw;
-    margin: 50px auto;
-}
-  
-/* #flex-container > div {
-    background-color: #f1f1f1c5;
-    margin: 10px;
-    padding: 20px;
-    font-size: 30px;
-} */
-
-#submitButton {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-  
-#submitButton:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-.hidden {
-    display: block;
-    visibility: hidden;
+    margin: 10% auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 16px 0 rgb(211, 210, 210), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 4ch;
 }
 
 .min{
     float: left;
     margin-left: 10%;
+}
+
+.columns {
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
 
 .analytics{
@@ -44,14 +73,79 @@ body {
     margin: 50px auto;
 }
 
-/* .analytics {
-    display: none;
-} */
-
 .analyticDivs{
     display: block;
     text-align: center;
-    justify-content: space-evenly;
     width: 70%;
     margin: 50px auto;
 }
+#more_Info{
+    z-index: 1;
+    position: relative;
+    justify-content: space-evenly;
+    width: 70vw;
+    margin: 10% auto;
+    background-color: rgb(252, 252, 252);
+    box-shadow: 0 8px 16px 0 rgb(255, 255, 255), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 4ch;
+}
+.slideshow { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.slideshow li { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 50s linear infinite; 
+}
+.slideshow li:nth-child(1) { 
+    background-image: url(https://images.hdqwalls.com/download/clouds-summer-weather-5k-1b-2560x1440.jpg) 
+}
+.slideshow li:nth-child(2) { 
+    background-image: url(https://hdwallpapers.imgix.net/wallpaper-36461567439545seubdufb06.jpg?auto=compress&cs=tinysrgb&dpr=1);
+    animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+    background-image: url(https://cdn.hipwallpaper.com/i/9/9/cS1J2n.jpg);
+    animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+    background-image: url(https://i.pinimg.com/originals/7e/fb/1e/7efb1e6d25184aac0998fb966732325d.jpg);
+    animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+    background-image: url(https://i.pinimg.com/originals/fa/47/68/fa47681f7fadb657736dea2041028a16.jpg);
+    animation-delay: 40s; 
+}
+@keyframes imageAnimation { 
+    0% { 
+        opacity: 0; 
+        animation-timing-function: ease-in;
+    }
+    10% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    20% {
+        opacity: 1
+    }
+    30% {
+        opacity: 0
+    }
+}
+
