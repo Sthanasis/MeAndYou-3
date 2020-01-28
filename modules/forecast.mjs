@@ -3,17 +3,26 @@ import { days } from './data.mjs'
 
 
 // forecast for partials.mjs
-function appendDate(item, i,  operation, div){
+function appendDate(item, i,  operation, method, div){
     if (operation === 'create') {
         let day = document.createElement('div')
         let text = document.createTextNode(convertToDay(item.dt_txt))
-        day.appendChild(text)
-        day.id = `day${i}`
+        if(method === 'appendDivs'){
+            day.id = `day${i}`
+        } else {
+            day.id = `analyticDay${i}`
+        }
         day.className = 'days'
+        day.appendChild(text)
         document.getElementById(div).appendChild(day)
     } else {
-        let day = document.getElementById(`day${i}`)
-        day.innerHTML = convertToDay(item.dt_txt)
+        if(method === 'updateDivs'){
+            let day = document.getElementById(`day${i}`)
+            day.innerHTML = convertToDay(item.dt_txt)
+        } else {
+            let day = document.getElementById(`analyticDay${i}`)
+            day.innerHTML = convertToDay(item.dt_txt)
+        }
     }
 }
 

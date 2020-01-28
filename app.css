@@ -33,13 +33,25 @@ body {
 
 .min{
     float: left;
-    margin-left: 20%;
+    margin-left: 10%;
 }
 
-#more_Info {
-    display: flex;
+.analytics{
+    display: none;
     text-align: center;
     justify-content: space-evenly;
-    width: 70vw;
+    width: 70%;
+    margin: 50px auto;
+}
+
+/* .analytics {
+    display: none;
+} */
+
+.analyticDivs{
+    display: block;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 70%;
     margin: 50px auto;
 }
