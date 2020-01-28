@@ -1,5 +1,5 @@
 import { appendDate, appendDescription, appendIcon, appendMinTemp, appendMaxTemp} from './forecast.mjs'
-import { appendButton } from './hide_show.mjs'
+import { appendButton } from './buttons.mjs'
 
 // Working On Div #title 
 // ===============================================================
@@ -25,6 +25,7 @@ function appendDivs(days, data){
     days.forEach((item, i)=>{
         let column = document.createElement('div')
         column.id = `div${i}`
+        column.className = 'columns'
         document.getElementById('flex-container').appendChild(column)
         appendDate(item, i, 'create', 'appendDivs',`div${i}`)
         appendMinTemp(data, i ,'create', `div${i}`)

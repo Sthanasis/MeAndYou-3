@@ -1,6 +1,6 @@
 import { convertToDay } from './methods.mjs'
 import { appendTemp, appendTime, appendFeelsLikeTemp, appendIcon, appendDescription, appendDate } from './forecast.mjs'
-import {analyticButton} from './hide_show.mjs'
+import {analyticButton} from './buttons.mjs'
 
 function appendAnalytics(days, data){
     let count = 0

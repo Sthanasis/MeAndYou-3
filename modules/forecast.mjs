@@ -9,10 +9,11 @@ function appendDate(item, i,  operation, method, div){
         let text = document.createTextNode(convertToDay(item.dt_txt))
         if(method === 'appendDivs'){
             day.id = `day${i}`
+            day.className = 'days'
         } else {
             day.id = `analyticDay${i}`
+            day.className = 'analyticDays'
         }
-        day.className = 'days'
         day.appendChild(text)
         document.getElementById(div).appendChild(day)
     } else {
