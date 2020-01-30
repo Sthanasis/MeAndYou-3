@@ -10,8 +10,8 @@ function appendButton(i, div) {
         let el = document.getElementById(`analytics${i}`)
         // let day = document.getElementById(`analyticDay${i}`)
         let appender = document.getElementById('flex-container')
-        console.log('hi')
-        if(el.style.display === ''){
+        
+        if(el.style.display === 'none'){
             el.style.display = 'flex';
             appender.style.display = 'none';
             
@@ -34,7 +34,7 @@ function analyticButton(i, div) {
     
         let el = document.getElementById('flex-container')
         let appender = document.getElementById(`analytics${i}`)
-        console.log(el)
+
         if(el.style.display === 'none'){
             el.style.display = 'flex';
             appender.style.display = 'none';

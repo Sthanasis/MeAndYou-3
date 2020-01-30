@@ -4,7 +4,8 @@ const submitBtn = document.getElementById('submitButton')
 
 submitBtn.addEventListener("click",()=>{
     callWeatherApi()
-    let element = document.getElementById('submit')
+    const element = document.getElementById('cityInput')
+    const element2 = document.getElementById('submitButton')
     element.style.display = 'none'
+    element2.style.display = 'none'
 })
-
