@@ -1,6 +1,5 @@
 body {
-    background-color: black;
-    overflow: hidden;
+    background-color: white;
 }
 
 input[type=text] {
@@ -8,7 +7,9 @@ input[type=text] {
     position: relative;
     text-align: center;
     padding-top: 40vh;
-    margin-left: 46%;
+    margin-left: 45.5vw;
+    margin-right: 45.5vw;
+    margin-top: 18vw;
     padding:5px; 
     border:2px solid #ccc; 
     -webkit-border-radius: 5px;
@@ -49,7 +50,7 @@ input[type=submit]:hover{
     text-align: center;
     justify-content: space-evenly;
     width: 70vw;
-    margin: 10% auto;
+    margin: 0% auto 2% auto;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 8px 16px 0 rgb(211, 210, 210), 0 6px 20px 0 rgba(0,0,0,0.19);
     border-radius: 4ch;
@@ -65,27 +66,21 @@ input[type=submit]:hover{
     margin-bottom: 4%;
 }
 
+
 .analytics{
     display: none;
-    text-align: center;
-    justify-content: space-evenly;
-    width: 70%;
-    margin: 50px auto;
-}
-
-.analyticDivs{
-    display: block;
-    text-align: center;
-    width: 70%;
-    margin: 50px auto;
-}
-#more_Info{
-    z-index: 1;
     position: relative;
+    text-align: center;
     justify-content: space-evenly;
     width: 70vw;
-    margin: 10% auto;
-    background-color: rgb(252, 252, 252);
-    box-shadow: 0 8px 16px 0 rgb(255, 255, 255), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 0% auto 10% auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 16px 0 rgb(211, 210, 210), 0 6px 20px 0 rgba(0,0,0,0.19);
     border-radius: 4ch;
+}
+
+
+.analyticUls{
+    padding-right: 1vw;
+    margin-left: 5px;
 }
