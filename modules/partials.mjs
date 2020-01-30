@@ -11,6 +11,8 @@ function appendHeader(data, operation){
         header.appendChild(text)
         header.id = `header`
         document.getElementById('title').appendChild(header)
+        header.style.marginLeft = '20vw'
+        header.style.marginTop = '11vw'
     } else {
         let header = document.getElementById(`header`)
         header.innerHTML = `${data.city.name}, ${data.city.country}`
@@ -23,19 +25,21 @@ function appendHeader(data, operation){
 // Create Divs to display data
 function appendDivs(days, data){
     days.forEach((item, i)=>{
-        let column = document.createElement('div')
-        column.id = `div${i}`
+        let column = document.createElement('ul')
+        column.style.listStyleType = 'none'
+        column.id = `ul${i}`
         column.className = 'columns'
         document.getElementById('flex-container').appendChild(column)
-        appendDate(item, i, 'create', 'appendDivs',`div${i}`)
-        appendMinTemp(data, i ,'create', `div${i}`)
-        appendMaxTemp(data, i ,'create', `div${i}`)
-        appendIcon(item, i, 'create', 'appendDivs', `div${i}`)
-        appendDescription(item, i, 'create','appendDivs', `div${i}`)
+        column.style.margin = '2vw 0'
+        appendDate(item, i, 'create', 'appendDivs',`ul${i}`)
+        appendMinTemp(data, i ,'create', `ul${i}`)
+        appendMaxTemp(data, i ,'create', `ul${i}`)
+        appendIcon(item, i, 'create', 'appendDivs', `ul${i}`)
+        appendDescription(item, i, 'create','appendDivs', `ul${i}`)
         let btnDiv = document.createElement('div')
         btnDiv.id = `btnDiv${i}`
         document.getElementById('flex-container').appendChild(btnDiv)
-        appendButton(i , `div${i}`)
+        appendButton(i , `ul${i}`)
     })
 }
 

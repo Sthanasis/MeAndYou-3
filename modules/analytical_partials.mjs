@@ -13,22 +13,26 @@ function appendAnalytics(days, data){
         let currentDay = convertToDay(day.dt_txt)
         data.forEach(item => {
             if (currentDay === convertToDay(item.dt_txt)){
-                let div = document.createElement('div')
-                div.id = `analyticDiv${count}`
-                div.className = 'analyticDivs'
-                document.getElementById(`analytics${i}`).appendChild(div)
-                appendTime(item , count , 'create', `analyticDiv${count}`)
-                appendIcon(item , count , 'create', 'appendAnalytics', `analyticDiv${count}`)
-                appendDescription(item, count , 'create' ,'appednAnalytics', `analyticDiv${count}`)
-                appendTemp(item , count , 'create', `analyticDiv${count}`)
-                appendFeelsLikeTemp(item, count, 'create', `analyticDiv${count}`)
+                let ul = document.createElement('ul')
+                ul.style.listStyleType = 'none'
+                ul.style.float = 'left'
+                ul.style.borderRight = ' 1px solid grey'
+                ul.id = `analyticUl${count}`
+                ul.className = 'analyticUls'
+                document.getElementById(`analytics${i}`).appendChild(ul)
+                appendTime(item , count , 'create', `analyticUl${count}`)
+                appendIcon(item , count , 'create', 'appendAnalytics', `analyticUl${count}`)
+                appendDescription(item, count , 'create' ,'appednAnalytics', `analyticUl${count}`)
+                appendTemp(item , count , 'create', `analyticUl${count}`)
+                appendFeelsLikeTemp(item, count, 'create', `analyticUl${count}`)
                 count++
             }
+            if (currentDay !== convertToDay(item.dt_txt)){
+                let lastUl = document.getElementById(`analyticUl${count - 1}`)
+                lastUl.style.border = 'none'
+            }
         })
-        let btnDiv = document.createElement('div')
-        btnDiv.id = `analyticBtnDiv${i}`
-        document.getElementById(`analytics${i}`).appendChild(btnDiv)
-        analyticButton(i , `analyticBtnDiv${i}`)
+        analyticButton(i , `analytics${i}`)
     })
 }
 

@@ -5,17 +5,24 @@ import { days } from './data.mjs'
 // forecast for partials.mjs
 function appendDate(item, i,  operation, method, div){
     if (operation === 'create') {
-        let day = document.createElement('div')
-        let text = document.createTextNode(convertToDay(item.dt_txt))
         if(method === 'appendDivs'){
+            let day = document.createElement('li')
+            let text = document.createTextNode(convertToDay(item.dt_txt))
             day.id = `day${i}`
             day.className = 'days'
+            day.appendChild(text)
+            document.getElementById(div).appendChild(day)
+            day.style.paddingBottom = '1vw'
         } else {
-            day.id = `analyticDay${i}`
-            day.className = 'analyticDays'
+            let day = document.createElement('h3')
+            let text = document.createTextNode(convertToDay(item.dt_txt))
+            day.id = `day${i}`
+            day.className = 'days'
+            day.appendChild(text)
+            document.getElementById(div).appendChild(day)
+            day.style.paddingBottom = '1vw'
+            day.style.margin = '0'
         }
-        day.appendChild(text)
-        document.getElementById(div).appendChild(day)
     } else {
         if(method === 'updateDivs'){
             let day = document.getElementById(`day${i}`)
@@ -39,7 +46,7 @@ function appendMinTemp(data ,i , operation, div){
     })
     // now I have min for each day
     if(operation === 'create') {
-        let min_temp = document.createElement('div')
+        let min_temp = document.createElement('li')
         let text = document.createTextNode(`${convertKelvinToCelsius(min)}`)
         min_temp.appendChild(text)
         min_temp.id = `min_temp${i}`
@@ -63,7 +70,7 @@ function appendMaxTemp(data, i, operation, div){
     })
     // now I have max for each day
     if(operation === 'create') {
-        let max_temp = document.createElement('div')
+        let max_temp = document.getElementById(`min_temp${i}`)
         let text = document.createTextNode( ` - ${convertKelvinToCelsius(max)}`)
         max_temp.appendChild(text)
         max_temp.id = `max_temp${i}`
@@ -100,7 +107,7 @@ function appendIcon(item, i , operation, method, div){
 
 function appendDescription(item, i , operation, method, div){
     if(operation === 'create'){
-        let description = document.createElement('div')
+        let description = document.createElement('li')
         let text = document.createTextNode(item.weather[0].description)
         description.appendChild(text)
         if(method === 'appendDivs'){
@@ -125,7 +132,7 @@ function appendDescription(item, i , operation, method, div){
 // forecast for analytical_partials.mjs
 function appendTemp(item, i,  operation, div){
     if(operation === 'create'){
-        let temp = document.createElement('div')
+        let temp = document.createElement('li')
         let text = document.createTextNode(convertKelvinToCelsius(item.main.temp))
         temp.appendChild(text)
         temp.id = `temp${i}`
@@ -139,7 +146,7 @@ function appendTemp(item, i,  operation, div){
 
 function appendTime(item, i , operation , div){
     if (operation === 'create'){
-        let time = document.createElement('div')
+        let time = document.createElement('li')
         let text = document.createTextNode(getTime(item.dt_txt))
         time.appendChild(text)
         time.id = `time${i}`
@@ -153,7 +160,7 @@ function appendTime(item, i , operation , div){
 
 function appendFeelsLikeTemp(item, i,  operation, div){
     if(operation === 'create'){
-        let temp = document.createElement('div')
+        let temp = document.createElement('li')
         let text = document.createTextNode( ` feelsLike: ${convertKelvinToCelsius(item.main.feels_like)}`)
         temp.appendChild(text)
         temp.id = `feelsLike${i}`

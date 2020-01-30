@@ -5,6 +5,8 @@ function appendButton(i, div) {
     button.id = `btn${i}`
     button.className = 'showbtns'
     document.getElementById(div).appendChild(button)
+    button.style.marginTop = '1vw'
+
     button.addEventListener('click', ()=> {
     
         let el = document.getElementById(`analytics${i}`)
@@ -12,11 +14,10 @@ function appendButton(i, div) {
         let appender = document.getElementById('flex-container')
         
         if(el.style.display === 'none'){
-            el.style.display = 'flex';
-            appender.style.display = 'none';
-            
+            el.style.display = 'block';
+            appender.style.display = 'none'; 
         } else {
-            el.style.display = 'flex';
+            el.style.display = 'block';
             appender.style.display = 'none';
         }
     
@@ -30,6 +31,7 @@ function analyticButton(i, div) {
     button.id = `backBtn${i}`
     button.className = 'analyticBtns'
     document.getElementById(div).appendChild(button)
+    button.style.margin = '2vw'
     button.addEventListener('click', ()=> {
     
         let el = document.getElementById('flex-container')
