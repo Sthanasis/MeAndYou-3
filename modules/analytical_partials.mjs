@@ -30,10 +30,12 @@ function appendAnalytics(days, data){
             if (currentDay !== convertToDay(item.dt_txt)){
                 let lastUl = document.getElementById(`analyticUl${count - 1}`)
                 lastUl.style.border = 'none'
-            }
+            } 
         })
         analyticButton(i , `analytics${i}`)
     })
+    let lastUl = document.getElementById(`analyticUl${count - 1}`)
+    lastUl.style.border = 'none'
 }
 
 function updateAnalytics(days, data) {

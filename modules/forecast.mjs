@@ -20,7 +20,7 @@ function appendDate(item, i,  operation, method, div){
             day.className = 'days'
             day.appendChild(text)
             document.getElementById(div).appendChild(day)
-            day.style.paddingBottom = '1vw'
+            day.style.padding = '1vw 0'
             day.style.margin = '0'
         }
     } else {

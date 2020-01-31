@@ -12,7 +12,7 @@ function appendHeader(data, operation){
         header.id = `header`
         document.getElementById('title').appendChild(header)
         header.style.marginLeft = '20vw'
-        header.style.marginTop = '11vw'
+        header.style.marginTop = '10vw'
     } else {
         let header = document.getElementById(`header`)
         header.innerHTML = `${data.city.name}, ${data.city.country}`

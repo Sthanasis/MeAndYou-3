@@ -29,7 +29,7 @@ function analyticButton(i, div) {
     let text = document.createTextNode('Get back')
     button.appendChild(text)
     button.id = `backBtn${i}`
-    button.className = 'analyticBtns'
+    button.className = 'analyticBtns btn btn-outline-secondary  '
     document.getElementById(div).appendChild(button)
     button.style.margin = '2vw'
     button.addEventListener('click', ()=> {
