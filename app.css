@@ -72,15 +72,9 @@ input[type=submit]:hover{
     position: relative;
     text-align: center;
     justify-content: space-evenly;
-    width: 70vw;
+    width: 80%;
     margin: 0% auto 10% auto;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 8px 16px 0 rgb(211, 210, 210), 0 6px 20px 0 rgba(0,0,0,0.19);
-    border-radius: 4ch;
+    
 }
 
 
-.analyticUls{
-    padding-right: 1vw;
-    margin-left: 3px;
-}

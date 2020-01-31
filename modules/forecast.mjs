@@ -16,8 +16,8 @@ function appendDate(item, i,  operation, method, div){
         } else {
             let day = document.createElement('h3')
             let text = document.createTextNode(convertToDay(item.dt_txt))
-            day.id = `day${i}`
-            day.className = 'days'
+            day.id = `analyticDay${i}`
+            // day.className = 'days'
             day.appendChild(text)
             document.getElementById(div).appendChild(day)
             day.style.padding = '1vw 0'
@@ -161,14 +161,14 @@ function appendTime(item, i , operation , div){
 function appendFeelsLikeTemp(item, i,  operation, div){
     if(operation === 'create'){
         let temp = document.createElement('li')
-        let text = document.createTextNode( ` feelsLike: ${convertKelvinToCelsius(item.main.feels_like)}`)
+        let text = document.createTextNode( `Feels: ${convertKelvinToCelsius(item.main.feels_like)}`)
         temp.appendChild(text)
         temp.id = `feelsLike${i}`
         temp.className = 'feelsLike'
         document.getElementById(div).appendChild(temp)
     } else {
         let temp = document.getElementById(`feelsLike${i}`)
-        temp.innerHTML = ` feelsLike: ${convertKelvinToCelsius(item.main.feels_like)}`
+        temp.innerHTML = `Feels: ${convertKelvinToCelsius(item.main.feels_like)}`
     }
 }
 

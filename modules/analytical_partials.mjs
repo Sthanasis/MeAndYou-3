@@ -4,22 +4,29 @@ import {analyticButton} from './buttons.mjs'
 
 function appendAnalytics(days, data){
     let count = 0
+    
     days.forEach((day, i) => {
         let column = document.createElement('div')
         column.id = `analytics${i}`
         column.className = 'analytics'
         document.getElementById('more_Info').appendChild(column)
-        appendDate(day, i,  'create' , 'appendAnalytics',`analytics${i}`)
         let currentDay = convertToDay(day.dt_txt)
         data.forEach(item => {
             if (currentDay === convertToDay(item.dt_txt)){
+                let analyticsDiv = document.createElement('div')
+                analyticsDiv.id = `analyticsDiv${count}`
+                analyticsDiv.className = 'analyticsDiv'
+                analyticsDiv.style.borderRight = '1px solid grey'
+                column.appendChild(analyticsDiv)
+                analyticsDiv.style.float = 'left'
+                analyticsDiv.style.margin = '0'
+                analyticsDiv.style.paddingRight = '3vw'
                 let ul = document.createElement('ul')
-                ul.style.listStyleType = 'none'
-                ul.style.float = 'left'
-                ul.style.borderRight = ' 1px solid grey'
                 ul.id = `analyticUl${count}`
                 ul.className = 'analyticUls'
-                document.getElementById(`analytics${i}`).appendChild(ul)
+                analyticsDiv.appendChild(ul)
+                ul.style.listStyleType = 'none'
+                ul.style.float = 'left'
                 appendTime(item , count , 'create', `analyticUl${count}`)
                 appendIcon(item , count , 'create', 'appendAnalytics', `analyticUl${count}`)
                 appendDescription(item, count , 'create' ,'appednAnalytics', `analyticUl${count}`)
@@ -28,14 +35,13 @@ function appendAnalytics(days, data){
                 count++
             }
             if (currentDay !== convertToDay(item.dt_txt)){
-                let lastUl = document.getElementById(`analyticUl${count - 1}`)
-                lastUl.style.border = 'none'
+                let lastDiv = document.getElementById(`analyticsDiv${count - 1}`)
+                lastDiv.style.border = 'none'
             } 
         })
-        analyticButton(i , `analytics${i}`)
     })
-    let lastUl = document.getElementById(`analyticUl${count - 1}`)
-    lastUl.style.border = 'none'
+    let lastDiv = document.getElementById(`analyticsDiv${count - 1}`)
+    lastDiv.style.border = 'none'
 }
 
 function updateAnalytics(days, data) {
