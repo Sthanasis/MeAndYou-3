@@ -17,6 +17,11 @@ function callWeatherApi(){
                 appendDivs(days, response.data.list)
                 appendAnalytics(days, response.data.list)
                 
+                const element = document.getElementById('cityInput')
+                const element2 = document.getElementById('submitButton')
+                element.style.display = 'none'
+                element2.style.display = 'none'
+                
             } else {
                 
                 createDataObject(response.data)
