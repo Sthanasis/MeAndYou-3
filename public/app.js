@@ -1,7 +1,15 @@
-import { callWeatherApi } from '../modules/data.mjs'
+import { callWeatherApi } from '../modules/data.mjs';
 
-const submitBtn = document.getElementById('submitButton')
+const submitBtn = document.getElementById('submitButton');
+const input = document.getElementById('cityInput');
 
-submitBtn.addEventListener("click",()=>{
-    callWeatherApi()  
+input.addEventListener('keyup', (event)=>{
+    event.preventDefault();
+    if(event.keyCode === 13){
+        submitBtn.click();
+    }
+})
+
+submitBtn.addEventListener('click',()=>{
+    callWeatherApi();
 })
