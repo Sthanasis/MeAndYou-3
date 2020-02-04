@@ -31,7 +31,7 @@ function callWeatherApi(){
 
             }
         }) 
-        .catch(()=>alert('Please insert a valid city'))                   
+        .catch((err)=>alert(err))                   
     } else{
         alert('Please insert a city Name')
     }
