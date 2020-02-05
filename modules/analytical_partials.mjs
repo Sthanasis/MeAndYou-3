@@ -1,16 +1,18 @@
 import { convertToDay } from './methods.mjs'
 import { appendTemp, appendTime, appendFeelsLikeTemp, appendIcon, appendDescription, appendDate } from './forecast.mjs'
-import {analyticButton} from './buttons.mjs'
+
 
 function appendAnalytics(days, data){
     let count = 0
     
     days.forEach((day, i) => {
+
         let column = document.createElement('div')
         column.id = `analytics${i}`
         column.className = 'analytics'
         document.getElementById('more_Info').appendChild(column)
         let currentDay = convertToDay(day.dt_txt)
+
         data.forEach(item => {
             if (currentDay === convertToDay(item.dt_txt)){
                 let analyticsDiv = document.createElement('div')
@@ -34,22 +36,29 @@ function appendAnalytics(days, data){
                 appendFeelsLikeTemp(item, count, 'create', `analyticUl${count}`)
                 count++
             }
+
             if (currentDay !== convertToDay(item.dt_txt)){
                 let lastDiv = document.getElementById(`analyticsDiv${count - 1}`)
                 lastDiv.style.border = 'none'
-            } 
+            }
+
         })
     })
+
     let lastDiv = document.getElementById(`analyticsDiv${count - 1}`)
     lastDiv.style.border = 'none'
 }
 
 function updateAnalytics(days, data) {
     let count = 0
+
     for(let i = 0; i < days.length; i++){
+
         let currentDay = convertToDay(days[i].dt_txt)
         appendDate(days[i], i,  'update' , 'updateAnalytics' )
+
         data.forEach(item => {
+
             if (currentDay === convertToDay(item.dt_txt)){
                 appendTime(item , count , 'update')
                 appendIcon(item , count , 'update' , 'updateAnalytics')
@@ -58,6 +67,7 @@ function updateAnalytics(days, data) {
                 appendFeelsLikeTemp(item , count, 'update')
                 count++
             }
+            
         })
     }
 }

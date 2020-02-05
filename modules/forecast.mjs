@@ -2,7 +2,7 @@ import { convertToDay, convertKelvinToCelsius , iconUrl, getTime } from './metho
 import { days } from './data.mjs' 
 
 
-// forecast for partials.mjs
+// forecast for partials.mjs || analytical_partials.mjs
 function appendDate(item, i,  operation, method, div){
     if (operation === 'create') {
         if(method === 'appendDivs'){
@@ -34,6 +34,7 @@ function appendDate(item, i,  operation, method, div){
     }
 }
 
+// forecast for partials.mjs
 function appendMinTemp(data ,i , operation, div){
     let min = data[0].main.temp_min
     let currentDay = convertToDay(days[i].dt_txt)
@@ -49,6 +50,7 @@ function appendMinTemp(data ,i , operation, div){
         let min_temp = document.createElement('li')
         let text = document.createTextNode(`${convertKelvinToCelsius(min)}`)
         min_temp.appendChild(text)
+        min_temp.style.color = 'grey'
         min_temp.id = `min_temp${i}`
         min_temp.className = 'min'
         document.getElementById(div).appendChild(min_temp)
@@ -58,6 +60,7 @@ function appendMinTemp(data ,i , operation, div){
     }
 }
 
+// forecast for partials.mjs
 function appendMaxTemp(data, i, operation, div){
     let max = 0
     let currentDay = convertToDay(days[i].dt_txt)
@@ -70,18 +73,20 @@ function appendMaxTemp(data, i, operation, div){
     })
     // now I have max for each day
     if(operation === 'create') {
-        let max_temp = document.getElementById(`min_temp${i}`)
-        let text = document.createTextNode( ` - ${convertKelvinToCelsius(max)}`)
+        let max_temp = document.createElement(`li`)
+        let text = document.createTextNode( ` ${convertKelvinToCelsius(max)}`)
         max_temp.appendChild(text)
+        max_temp.style.fontWeight = 'bold'
         max_temp.id = `max_temp${i}`
         max_temp.className = 'max'
         document.getElementById(div).appendChild(max_temp)
     } else {
         let updatedMax = document.getElementById(`max_temp${i}`)
-        updatedMax.innerHTML = ` - ${convertKelvinToCelsius(max)}`
+        updatedMax.innerHTML = ` ${convertKelvinToCelsius(max)}`
     }
 }
 
+// forecast for partials.mjs || analytical_partials.mjs
 function appendIcon(item, i , operation, method, div){
     if(operation === 'create'){
         let icon = document.createElement('img')
@@ -105,6 +110,7 @@ function appendIcon(item, i , operation, method, div){
     }
 }
 
+// forecast for partials.mjs || analytical_partials.mjs
 function appendDescription(item, i , operation, method, div){
     if(operation === 'create'){
         let description = document.createElement('li')
@@ -144,6 +150,7 @@ function appendTemp(item, i,  operation, div){
     }
 }
 
+// forecast for analytical_partials.mjs
 function appendTime(item, i , operation , div){
     if (operation === 'create'){
         let time = document.createElement('li')
@@ -158,6 +165,7 @@ function appendTime(item, i , operation , div){
     }
 }
 
+// forecast for analytical_partials.mjs
 function appendFeelsLikeTemp(item, i,  operation, div){
     if(operation === 'create'){
         let temp = document.createElement('li')

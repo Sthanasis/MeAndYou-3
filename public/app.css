@@ -68,13 +68,12 @@ input[type=submit]:hover{
 
 
 .analytics{
+
     display: none;
     position: relative;
     text-align: center;
     justify-content: space-evenly;
-    width: 80%;
-    margin: 0% auto 10% auto;
-    
+    width: 70vw;
+    margin: 0 auto 3vw auto;
 }
-
 
