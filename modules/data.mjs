@@ -17,9 +17,9 @@ function callWeatherApi(){
                 appendDivs(days, response.data.list)
                 appendAnalytics(days, response.data.list)
 
-                let element = document.getElementById('submit')
-                element.style.opacity = '0'
-                element.style.transition = '1s'
+                let element = document.getElementById('submit').style
+                element.opacity = '0'
+                element.transition = '2s'
                 
             } else {
                 
