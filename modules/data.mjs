@@ -24,11 +24,11 @@ function callWeatherApi(){
                 
             } else {
                 
-
                 createDataObject(response.data)
                 appendHeader(response.data, 'update')
                 updateDivs(days, response.data.list)
-                
+                updateAnalytics(days, response.data.list)
+
             }
         }) 
         .catch((err)=>alert(err))                   
