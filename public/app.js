@@ -11,12 +11,12 @@ input.addEventListener('keyup', (event)=>{
 })
 
 submitBtn.addEventListener('click',()=>{
-    
-    callWeatherApi();
 
-    document.getElementById('container').style.backgroundColor = 'white'
-    document.getElementById('container').style.backgroundColor = 'rgba(255,255,255, .6)'
-    document.getElementById('container').style.transition = '5s'
+    callWeatherApi();
+    let container = document.getElementById('container').style
+    container.backgroundColor = 'white'
+    container.backgroundColor = 'rgba(255,255,255, .6)'
+    container.transition = '5s'
     document.getElementById('background').className = 'background'
 
 })
