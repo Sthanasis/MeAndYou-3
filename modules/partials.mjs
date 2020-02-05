@@ -1,5 +1,5 @@
 import { appendDate, appendDescription, appendIcon, appendMinTemp, appendMaxTemp} from './forecast.mjs'
-import { appendButton } from './buttons.mjs'
+import { appendButton, appendSearchBtn } from './buttons.mjs'
 
 // Working On Div #title 
 // ===============================================================
@@ -13,15 +13,16 @@ function appendHeader(data, operation){
         document.getElementById('title').appendChild(header)
         header.style.marginLeft = '20vw'
         header.style.marginTop = '10vw'
+        appendSearchBtn()
     } else {
         let header = document.getElementById(`header`)
         header.innerHTML = `${data.city.name}, ${data.city.country}`
+        appendSearchBtn()
     }
 }
 
 // Working On Div #flex-container 
 // ================================================================
-
 // Create Divs to display data
 function appendDivs(days, data){
     days.forEach((item, i)=>{
@@ -53,5 +54,8 @@ function updateDivs(days, data){
         appendDescription(days[i], i, 'update','updateDivs')
     }
 }
+
+// On body
+
 
 export { appendHeader, appendDivs, updateDivs }

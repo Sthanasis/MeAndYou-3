@@ -7,8 +7,7 @@ input[type=text] {
     position: relative;
     text-align: center;
     padding-top: 40vh;
-    margin-left: 45.5vw;
-    margin-right: 45.5vw;
+    margin-left: 46vw;
     margin-top: 18vw;
     padding:5px; 
     border:2px solid #ccc; 
@@ -25,7 +24,7 @@ input[type=submit] {
     position: relative;
     text-align: center;
     padding: 5px 15px;
-    margin-left: 48.5%;
+    margin-left: 49%;
     margin-top: 1%; 
     background:rgb(255, 255, 255); 
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -50,9 +49,9 @@ input[type=submit]:hover{
     text-align: center;
     justify-content: space-evenly;
     width: 70vw;
-    margin: 0% auto 2% auto;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 8px 16px 0 rgb(211, 210, 210), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 0 auto 0 auto;
+    /* background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 16px 0 rgb(211, 210, 210), 0 6px 20px 0 rgba(0,0,0,0.19); */
     border-radius: 4ch;
 }
 

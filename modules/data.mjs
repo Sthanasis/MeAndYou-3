@@ -1,5 +1,5 @@
 import axios from 'axios' 
-import { appendDivs, appendHeader, updateDivs } from './partials.mjs'
+import { appendDivs, appendHeader, updateDivs,appendSearchDiv } from './partials.mjs'
 import { convertToDay , getTime } from './methods.mjs'
 import { appendAnalytics, updateAnalytics } from './analytical_partials.mjs' 
 
@@ -17,18 +17,18 @@ function callWeatherApi(){
                 appendDivs(days, response.data.list)
                 appendAnalytics(days, response.data.list)
                 
-                const element = document.getElementById('cityInput')
-                const element2 = document.getElementById('submitButton')
+                let element = document.getElementById('cityInput')
+                let element2 = document.getElementById('submitButton')
                 element.style.display = 'none'
                 element2.style.display = 'none'
                 
             } else {
                 
+
                 createDataObject(response.data)
                 appendHeader(response.data, 'update')
                 updateDivs(days, response.data.list)
-                updateAnalytics(days, response.data.list)
-
+                
             }
         }) 
         .catch((err)=>alert(err))                   

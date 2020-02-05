@@ -17,13 +17,16 @@ function appendButton(i, div) {
     
         let el = document.getElementById(`analytics${i}`)
         let appender = document.getElementById('flex-container')
+        let btn = document.getElementById('searchAgainBtn')
         appendDate(days[i], i,  'create' , 'appendAnalytics',`header`)
         if(el.style.display === 'none'){
             el.style.display = 'flex';
-            appender.style.display = 'none'; 
+            appender.style.display = 'none';
+            btn.style.display = 'none'
         } else {
             el.style.display = 'flex';
             appender.style.display = 'none';
+            btn.style.display = 'none'
         }
         analyticButton(i , `more_Info`)
     
@@ -48,10 +51,14 @@ function analyticButton(i, div) {
         let el = document.getElementById('flex-container')
         let appender = document.getElementById(`analytics${i}`)
         let day = document.getElementById(`analyticDay${i}`)
+        let btn = document.getElementById('searchAgainBtn')
+
         if(el.style.display === 'none'){
             el.style.display = 'flex';
             appender.style.display = 'none';
+            btn.style.display = 'block'
         }
+
         day.remove()
         button.remove()
     })   
@@ -85,4 +92,23 @@ function applyHoverStyle(button, colour) {
     })
 }
 
-export { appendButton, analyticButton }
+function appendSearchBtn() {
+
+    let button = document.createElement('button')
+    let textbtn = document.createTextNode('Search again')
+    button.id = 'searchAgainBtn'
+    button.style.float = 'right'
+    button.style.marginRight = '23.6%'
+    applyStyle(button, 'grey')
+    applyHoverStyle(button, 'grey')
+    button.appendChild(textbtn)
+    document.getElementById('title').appendChild(button)
+    
+    button.addEventListener('click', ()=>{
+
+        location.reload()
+
+    })
+}
+
+export { appendButton, analyticButton, appendSearchBtn }
