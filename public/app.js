@@ -16,7 +16,7 @@ submitBtn.addEventListener('click',()=>{
     let container = document.getElementById('container').style
     container.backgroundColor = 'white'
     container.backgroundColor = 'rgba(255,255,255, .6)'
-    container.transition = '5s'
+    container.transition = '3s'
     document.getElementById('background').className = 'background'
 
 })
