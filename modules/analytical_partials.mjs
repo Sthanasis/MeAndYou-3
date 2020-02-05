@@ -45,14 +45,13 @@ function appendAnalytics(days, data){
 
 function updateAnalytics(days, data) {
     let count = 0
-
+    
     for(let i = 0; i < days.length; i++){
-
+        
         let currentDay = convertToDay(days[i].dt_txt)
-        appendDate(days[i], i,  'update' , 'updateAnalytics' )
-
+        
         data.forEach(item => {
-
+            
             if (currentDay === convertToDay(item.dt_txt)){
                 appendTime(item , count , 'update')
                 appendIcon(item , count , 'update' , 'updateAnalytics')

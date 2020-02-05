@@ -18,5 +18,7 @@ submitBtn.addEventListener('click',()=>{
     container.backgroundColor = 'rgba(255,255,255, .6)'
     container.transition = '3s'
     document.getElementById('background').className = 'background'
-
+    if (container.opacity === '0'){
+        container.opacity = '1'
+    }
 })

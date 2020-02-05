@@ -17,9 +17,10 @@ function callWeatherApi(){
                 appendDivs(days, response.data.list)
                 appendAnalytics(days, response.data.list)
 
-                let element = document.getElementById('submit').style
-                element.opacity = '0'
-                element.transition = '2s'
+                let element = document.getElementById('submit')
+                element.style.content = ''
+                element.style.opacity = '0'
+                element.style.transition = '2s'
                 
             } else {
                 
@@ -27,6 +28,11 @@ function callWeatherApi(){
                 appendHeader(response.data, 'update')
                 updateDivs(days, response.data.list)
                 updateAnalytics(days, response.data.list)
+
+                let element = document.getElementById('submit')
+                element.style.content = ' '
+                element.style.opacity = '0'
+                element.style.transition = '2s'
 
             }
         }) 

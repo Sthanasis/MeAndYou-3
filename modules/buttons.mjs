@@ -106,7 +106,12 @@ function appendSearchBtn() {
     
     button.addEventListener('click', ()=>{
 
-        location.reload()
+        let container = document.getElementById('container').style
+        container.opacity = '0'
+        let submit = document.getElementById('submit').style
+        submit.opacity = '1'
+
+        button.remove()
 
     })
 }
