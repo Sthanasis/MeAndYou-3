@@ -18,7 +18,7 @@ function appendButton(i, div) {
         let el = document.getElementById(`analytics${i}`)
         let appender = document.getElementById('flex-container')
         let btn = document.getElementById('searchAgainBtn')
-        appendDate(days[i], i,  'create' , 'appendAnalytics',`header`)
+        appendDate(days[i], i,  'create' , 'appendAnalytics',`title`)
         if(el.style.display === 'none'){
             el.style.display = 'flex';
             appender.style.display = 'none';

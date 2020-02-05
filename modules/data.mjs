@@ -16,11 +16,10 @@ function callWeatherApi(){
                 appendHeader(response.data, 'create')
                 appendDivs(days, response.data.list)
                 appendAnalytics(days, response.data.list)
-                
-                let element = document.getElementById('cityInput')
-                let element2 = document.getElementById('submitButton')
-                element.style.display = 'none'
-                element2.style.display = 'none'
+
+                let element = document.getElementById('submit')
+                element.style.opacity = '0'
+                element.style.transition = '1s'
                 
             } else {
                 

@@ -12,15 +12,16 @@ function appendDate(item, i,  operation, method, div){
             day.className = 'days'
             day.appendChild(text)
             document.getElementById(div).appendChild(day)
-            day.style.paddingBottom = '1vw'
+            day.style.fontFamily = '"Comic Sans MS", cursive, sans-serif'
+            day.style.paddingBottom = '20px'
         } else {
             let day = document.createElement('h3')
             let text = document.createTextNode(convertToDay(item.dt_txt))
             day.id = `analyticDay${i}`
-            // day.className = 'days'
             day.appendChild(text)
+            day.style.fontFamily = '"Comic Sans MS", cursive, sans-serif'
             document.getElementById(div).appendChild(day)
-            day.style.padding = '1vw 0'
+            day.style.padding = '20px 0'
             day.style.margin = '0'
         }
     } else {
@@ -50,7 +51,7 @@ function appendMinTemp(data ,i , operation, div){
         let min_temp = document.createElement('li')
         let text = document.createTextNode(`${convertKelvinToCelsius(min)}`)
         min_temp.appendChild(text)
-        min_temp.style.color = 'black'
+        min_temp.style.color = '#4682B4'
         min_temp.id = `min_temp${i}`
         min_temp.className = 'min'
         document.getElementById(div).appendChild(min_temp)
@@ -76,7 +77,7 @@ function appendMaxTemp(data, i, operation, div){
         let max_temp = document.createElement(`li`)
         let text = document.createTextNode( ` ${convertKelvinToCelsius(max)}`)
         max_temp.appendChild(text)
-        max_temp.style.fontWeight = 'bold'
+        max_temp.style.color = 'black'
         max_temp.id = `max_temp${i}`
         max_temp.className = 'max'
         document.getElementById(div).appendChild(max_temp)
@@ -155,7 +156,6 @@ function appendTemp(item, i,  operation, div){
 function appendTime(item, i , operation , div){
     if (operation === 'create'){
         let time = document.createElement('li')
-        console.log(typeof(getTime(item.dt_txt)))
         let text = document.createTextNode(getTime(item.dt_txt).slice(0,5))
         time.appendChild(text)
         time.id = `time${i}`
@@ -173,6 +173,7 @@ function appendFeelsLikeTemp(item, i,  operation, div){
         let temp = document.createElement('li')
         let text = document.createTextNode( `Feels: ${convertKelvinToCelsius(item.main.feels_like)}`)
         temp.appendChild(text)
+        temp.style.fontFamily = 'serif'
         temp.id = `feelsLike${i}`
         temp.className = 'feelsLike'
         document.getElementById(div).appendChild(temp)

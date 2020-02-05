@@ -12,6 +12,8 @@ function appendHeader(data, operation){
         header.id = `header`
         document.getElementById('title').appendChild(header)
         header.style.marginTop = '5px'
+        header.style.fontSize = '200%'
+        header.style.fontFamily = 'cursive'
         appendSearchBtn()
     } else {
         let header = document.getElementById(`header`)
