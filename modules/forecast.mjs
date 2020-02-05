@@ -161,6 +161,8 @@ function appendTime(item, i , operation , div){
         time.id = `time${i}`
         time.className = 'time'
         document.getElementById(div).appendChild(time)
+        time.style.fontFamily = 'monospace';
+        time.style.fontSize = 'x-large';
     } else {
         let time = document.getElementById(`time${i}`)
         time.innerHTML = getTime(item.dt_txt)
