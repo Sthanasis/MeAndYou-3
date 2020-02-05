@@ -116,6 +116,7 @@ function appendDescription(item, i , operation, method, div){
         let description = document.createElement('li')
         let text = document.createTextNode(item.weather[0].description)
         description.appendChild(text)
+        description.style.fontStyle = 'italic'
         if(method === 'appendDivs'){
             description.id = `description${i}`
             description.className = 'descriptions'
@@ -154,7 +155,8 @@ function appendTemp(item, i,  operation, div){
 function appendTime(item, i , operation , div){
     if (operation === 'create'){
         let time = document.createElement('li')
-        let text = document.createTextNode(getTime(item.dt_txt))
+        console.log(typeof(getTime(item.dt_txt)))
+        let text = document.createTextNode(getTime(item.dt_txt).slice(0,5))
         time.appendChild(text)
         time.id = `time${i}`
         time.className = 'time'
