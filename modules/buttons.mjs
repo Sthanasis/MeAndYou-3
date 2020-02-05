@@ -40,7 +40,7 @@ function analyticButton(i, div) {
     button.id = `backBtn${i}`
     button.className = 'analyticBtns'
     document.getElementById(div).appendChild(button)
-    button.style.marginLeft = '48%'
+    button.style.marginBottom = '20px'
     
     applyStyle(button, 'LightSeaGreen')
 
@@ -98,7 +98,7 @@ function appendSearchBtn() {
     let textbtn = document.createTextNode('Search again')
     button.id = 'searchAgainBtn'
     button.style.float = 'right'
-    button.style.marginRight = '23.6%'
+    button.style.marginRight = '10%'
     applyStyle(button, 'grey')
     applyHoverStyle(button, 'grey')
     button.appendChild(textbtn)

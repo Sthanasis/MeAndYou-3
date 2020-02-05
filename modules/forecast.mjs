@@ -50,7 +50,7 @@ function appendMinTemp(data ,i , operation, div){
         let min_temp = document.createElement('li')
         let text = document.createTextNode(`${convertKelvinToCelsius(min)}`)
         min_temp.appendChild(text)
-        min_temp.style.color = 'grey'
+        min_temp.style.color = 'black'
         min_temp.id = `min_temp${i}`
         min_temp.className = 'min'
         document.getElementById(div).appendChild(min_temp)

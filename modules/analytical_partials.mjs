@@ -18,7 +18,6 @@ function appendAnalytics(days, data){
                 let analyticsDiv = document.createElement('div')
                 analyticsDiv.id = `analyticsDiv${count}`
                 analyticsDiv.className = 'analyticsDiv'
-                analyticsDiv.style.borderRight = '1px solid grey'
                 column.appendChild(analyticsDiv)
                 analyticsDiv.style.float = 'left'
                 analyticsDiv.style.margin = '0'
@@ -35,11 +34,6 @@ function appendAnalytics(days, data){
                 appendTemp(item , count , 'create', `analyticUl${count}`)
                 appendFeelsLikeTemp(item, count, 'create', `analyticUl${count}`)
                 count++
-            }
-
-            if (currentDay !== convertToDay(item.dt_txt)){
-                let lastDiv = document.getElementById(`analyticsDiv${count - 1}`)
-                lastDiv.style.border = 'none'
             }
 
         })

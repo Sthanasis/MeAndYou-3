@@ -11,8 +11,7 @@ function appendHeader(data, operation){
         header.appendChild(text)
         header.id = `header`
         document.getElementById('title').appendChild(header)
-        header.style.marginLeft = '20vw'
-        header.style.marginTop = '10vw'
+        header.style.marginTop = '5px'
         appendSearchBtn()
     } else {
         let header = document.getElementById(`header`)
@@ -31,7 +30,7 @@ function appendDivs(days, data){
         column.id = `ul${i}`
         column.className = 'columns'
         document.getElementById('flex-container').appendChild(column)
-        column.style.margin = '2vw 0'
+        column.style.margin = '20px 0'
         appendDate(item, i, 'create', 'appendDivs',`ul${i}`)
         appendMinTemp(data, i ,'create', `ul${i}`)
         appendMaxTemp(data, i ,'create', `ul${i}`)
