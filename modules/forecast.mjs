@@ -148,6 +148,7 @@ function appendTemp(item, i,  operation, div){
         temp.id = `temp${i}`
         temp.className = 'temperatures'
         temp.style.marginTop = '10px'
+        temp.style.color = 'Teal'
         document.getElementById(div).appendChild(temp)
     } else {
         let temp = document.getElementById(`temp${i}`)
@@ -178,7 +179,7 @@ function appendFeelsLikeTemp(item, i,  operation, div){
         let temp = document.createElement('li')
         let text = document.createTextNode( `Feels: ${convertKelvinToCelsius(item.main.feels_like)}`)
         temp.appendChild(text)
-        temp.style.fontFamily = 'serif'
+        temp.style.fontFamily = 'cursive'
         temp.id = `feelsLike${i}`
         temp.className = 'feelsLike'
         document.getElementById(div).appendChild(temp)

@@ -3,7 +3,7 @@ import { appendDate} from './forecast.mjs'
 
 function appendButton(i, div) {
     let button = document.createElement('button')
-    let text = document.createTextNode('Get detail')
+    let text = document.createTextNode('Detail')
     button.appendChild(text)
     button.id = `btn${i}`
     button.className = 'showbtns'
@@ -35,7 +35,7 @@ function appendButton(i, div) {
 
 function analyticButton(i, div) {
     let button = document.createElement('button')
-    let text = document.createTextNode('Get back')
+    let text = document.createTextNode('Back')
     button.appendChild(text)
     button.id = `backBtn${i}`
     button.className = 'analyticBtns'
