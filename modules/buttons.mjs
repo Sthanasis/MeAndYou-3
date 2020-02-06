@@ -117,13 +117,14 @@ function appendSearchBtn() {
 
 
         setTimeout(()=>{
+            
             for(let i = 0; i < 5; i++){
                 let button = document.getElementById(`btn${i}`)
                 button.remove()
             }
     
             button.remove()
-        }, 2000)   
+        }, 3000)   
 
     })
 }
