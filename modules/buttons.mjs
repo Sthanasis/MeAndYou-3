@@ -108,10 +108,22 @@ function appendSearchBtn() {
 
         let container = document.getElementById('container').style
         container.opacity = '0'
+
         let submit = document.getElementById('submit').style
         submit.opacity = '1'
 
-        button.remove()
+        let background = document.getElementById('background')
+        background.style.filter = 'none'
+
+
+        setTimeout(()=>{
+            for(let i = 0; i < 5; i++){
+                let button = document.getElementById(`btn${i}`)
+                button.remove()
+            }
+    
+            button.remove()
+        }, 2000)   
 
     })
 }
