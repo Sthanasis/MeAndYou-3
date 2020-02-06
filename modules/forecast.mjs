@@ -169,7 +169,7 @@ function appendTime(item, i , operation , div){
         time.style.fontSize = 'x-large';
     } else {
         let time = document.getElementById(`time${i}`)
-        time.innerHTML = getTime(item.dt_txt)
+        time.innerHTML = getTime(item.dt_txt).slice(0,5)
     }
 }
 
