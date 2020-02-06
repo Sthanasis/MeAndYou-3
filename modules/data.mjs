@@ -17,10 +17,11 @@ function callWeatherApi(){
                 appendDivs(days, response.data.list)
                 appendAnalytics(days, response.data.list)
 
-                let element = document.getElementById('submit')
-                element.style.content = ''
-                element.style.opacity = '0'
-                element.style.transition = '2s'
+                let element = document.getElementById('submit').style
+                let input = document.getElementById('cityInput')
+                input.value = null
+                element.opacity = '0'
+                element.transition = '2s'
                 
             } else {
                 
@@ -29,10 +30,11 @@ function callWeatherApi(){
                 updateDivs(days, response.data.list)
                 updateAnalytics(days, response.data.list)
 
-                let element = document.getElementById('submit')
-                element.style.content = ' '
-                element.style.opacity = '0'
-                element.style.transition = '2s'
+                let element = document.getElementById('submit').style
+                let input = document.getElementById('cityInput')
+                input.value = null
+                element.opacity = '0'
+                element.transition = '2s'
 
             }
         }) 
