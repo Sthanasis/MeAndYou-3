@@ -11,11 +11,12 @@ input.addEventListener('keyup', (event)=>{
 })
 
 submitBtn.addEventListener('click',()=>{
-
+    
+    
     callWeatherApi();
     
     let container = document.getElementById('container').style
-
+    
     container.backgroundColor = 'white'
     container.backgroundColor = 'rgba(255,255,255, .6)'
     container.transition = '3s'
@@ -26,5 +27,7 @@ submitBtn.addEventListener('click',()=>{
     if (container.opacity === '0'){
         container.opacity = '1'
     }
-
+    
+    submitBtn.disabled = true; 
+    
 })
