@@ -53,10 +53,8 @@ function updateDivs(days, data){
         appendMaxTemp(data, i , 'update')
         appendIcon(days[i], i,  'update', 'updateDivs')
         appendDescription(days[i], i, 'update','updateDivs')
+        appendButton(i , `ul${i}`)
     }
 }
-
-// On body
-
 
 export { appendHeader, appendDivs, updateDivs }
