@@ -115,7 +115,6 @@ function appendSearchBtn() {
         let background = document.getElementById('background')
         background.style.filter = 'none'
 
-
         setTimeout(()=>{
             
             for(let i = 0; i < 5; i++){
@@ -126,6 +125,8 @@ function appendSearchBtn() {
             button.remove()
         }, 3000)   
 
+        let submitBtn = document.getElementById('submitButton');
+        submitBtn.disabled = false;
     })
 }
 
