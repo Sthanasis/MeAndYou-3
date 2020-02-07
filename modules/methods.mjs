@@ -25,4 +25,8 @@ let iconUrl = (icon) => {
     return `http://openweathermap.org/img/wn/${icon}@2x.png`
 }
 
-export { convertToDay, getTime, convertKelvinToCelsius , iconUrl }
+function changeColor(item, color) {
+    item.style.color = color
+}
+
+export { convertToDay, getTime, convertKelvinToCelsius , iconUrl, changeColor }
