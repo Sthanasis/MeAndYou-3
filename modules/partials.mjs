@@ -1,5 +1,6 @@
 import { appendDate, appendDescription, appendIcon, appendMinTemp, appendMaxTemp} from './forecast.mjs'
 import { appendButton, appendSearchBtn } from './buttons.mjs'
+import { changeColor } from './methods.mjs'
 
 // Working On Div #title 
 // ===============================================================
@@ -14,6 +15,7 @@ function appendHeader(data, operation){
         header.style.marginTop = '5px'
         header.style.fontSize = '200%'
         header.style.fontFamily = 'cursive'
+        changeColor(header, 'white')
         appendSearchBtn()
     } else {
         let header = document.getElementById(`header`)

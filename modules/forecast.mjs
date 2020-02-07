@@ -1,4 +1,4 @@
-import { convertToDay, convertKelvinToCelsius , iconUrl, getTime } from './methods.mjs'
+import { convertToDay, convertKelvinToCelsius , iconUrl, getTime, changeColor } from './methods.mjs'
 import { days } from './data.mjs' 
 
 
@@ -15,6 +15,7 @@ function appendDate(item, i,  operation, method, div){
             day.style.fontFamily = '"Comic Sans MS", cursive, sans-serif'
             day.style.letterSpacing = '1px';    
             day.style.paddingBottom = '20px'
+            changeColor(day, '#FFF8DC')
         } else {
             let day = document.createElement('h3')
             let text = document.createTextNode(convertToDay(item.dt_txt))
@@ -25,6 +26,7 @@ function appendDate(item, i,  operation, method, div){
             document.getElementById(div).appendChild(day)
             day.style.padding = '20px 0'
             day.style.margin = '0'
+            changeColor(day, '#FFF8DC')
         }
     } else {
         if(method === 'updateDivs'){
@@ -53,7 +55,7 @@ function appendMinTemp(data ,i , operation, div){
         let min_temp = document.createElement('li')
         let text = document.createTextNode(`${convertKelvinToCelsius(min)}`)
         min_temp.appendChild(text)
-        min_temp.style.color = '#4682B4'
+        changeColor(min_temp, '#F0F8FF')
         min_temp.id = `min_temp${i}`
         min_temp.className = 'min'
         document.getElementById(div).appendChild(min_temp)
@@ -79,7 +81,7 @@ function appendMaxTemp(data, i, operation, div){
         let max_temp = document.createElement(`li`)
         let text = document.createTextNode( ` ${convertKelvinToCelsius(max)}`)
         max_temp.appendChild(text)
-        max_temp.style.color = 'black'
+        changeColor(max_temp, '#FFF8DC')
         max_temp.id = `max_temp${i}`
         max_temp.className = 'max'
         document.getElementById(div).appendChild(max_temp)
@@ -120,6 +122,7 @@ function appendDescription(item, i , operation, method, div){
         let text = document.createTextNode(item.weather[0].description)
         description.appendChild(text)
         description.style.fontStyle = 'italic'
+        changeColor(description , '#FFF8DC')
         if(method === 'appendDivs'){
             description.id = `description${i}`
             description.className = 'descriptions'
@@ -148,7 +151,7 @@ function appendTemp(item, i,  operation, div){
         temp.id = `temp${i}`
         temp.className = 'temperatures'
         temp.style.marginTop = '10px'
-        temp.style.color = 'Teal'
+        changeColor(temp , '#FFF8DC')
         document.getElementById(div).appendChild(temp)
     } else {
         let temp = document.getElementById(`temp${i}`)
@@ -167,6 +170,7 @@ function appendTime(item, i , operation , div){
         document.getElementById(div).appendChild(time)
         time.style.fontFamily = 'monospace';
         time.style.fontSize = 'x-large';
+        changeColor(time , '#FFF8DC')
     } else {
         let time = document.getElementById(`time${i}`)
         time.innerHTML = getTime(item.dt_txt).slice(0,5)
@@ -183,6 +187,7 @@ function appendFeelsLikeTemp(item, i,  operation, div){
         temp.id = `feelsLike${i}`
         temp.className = 'feelsLike'
         document.getElementById(div).appendChild(temp)
+        changeColor(temp , '#FFF8DC')
     } else {
         let temp = document.getElementById(`feelsLike${i}`)
         temp.innerHTML = `Feels: ${convertKelvinToCelsius(item.main.feels_like)}`
