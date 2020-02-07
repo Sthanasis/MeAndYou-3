@@ -1,6 +1,6 @@
 # MeAndYou-3
 Vanilla Js Weather Application
 
-Installation: after cloning cd in to directory and type -> npm install
+Install dependencies: after cloning, cd into directory and type in terminal -> npm install
 
-Run application: cd in to directory and type -> npm run dev
+Build and start server: cd into directory and type in terminal -> npm run dev
