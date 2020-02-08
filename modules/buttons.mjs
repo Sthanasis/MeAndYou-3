@@ -1,5 +1,6 @@
 import { days } from './data.mjs'
 import { appendDate} from './forecast.mjs'
+import { changeStyle } from './methods.mjs'
 
 function appendButton(i, div) {
     let button = document.createElement('button')
@@ -29,7 +30,8 @@ function appendButton(i, div) {
             btn.style.display = 'none'
         }
         analyticButton(i , `more_Info`)
-    
+
+        changeStyle('more_Info', 'opacity', '1')
     })
 }
 
