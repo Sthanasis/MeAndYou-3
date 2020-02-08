@@ -29,4 +29,21 @@ function changeColor(item, color) {
     item.style.color = color
 }
 
-export { convertToDay, getTime, convertKelvinToCelsius , iconUrl, changeColor }
+function fadeOut(targetId, opacityValue, transitionValue){
+    let item = document.getElementById(targetId).style
+    item.opacity = opacityValue;
+    item.transition = transitionValue;
+    return item;
+}
+
+function applyClassName(id, className){
+
+    return document.getElementById(id).className = className; 
+}
+
+function changeStyle(id, styleProperty, value){
+
+    return document.getElementById(id).style[styleProperty] = value;
+}
+
+export { convertToDay, getTime, convertKelvinToCelsius , iconUrl, changeColor, fadeOut, applyClassName, changeStyle }
