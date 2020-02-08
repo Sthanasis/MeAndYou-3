@@ -1,6 +1,6 @@
 import axios from 'axios' 
-import { appendDivs, appendHeader, updateDivs,appendSearchDiv } from './partials.mjs'
-import { convertToDay , getTime } from './methods.mjs'
+import { appendDivs, appendHeader, updateDivs } from './partials.mjs'
+import { convertToDay , getTime, fadeOut, applyClassName, changeStyle } from './methods.mjs'
 import { appendAnalytics, updateAnalytics } from './analytical_partials.mjs' 
 
 let days = []
@@ -11,17 +11,26 @@ function callWeatherApi(){
         axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${query}&APPID=196d16292a50e2189701f534273cad52`)
         .then(response => {
             if(days.length === 0){
+                
+                fadeOut('submit', '0', '2s')
+
+                let input = document.getElementById('cityInput')
+                input.value = null
+                
+                changeStyle('container','backgroundColor','rgba(0,0,0, 0.5)');
+                changeStyle('container','opacity', '1');
+
+                changeStyle('flex-container', 'opacity', '1');
+
+                changeStyle('title', 'opacity','1')
 
                 createDataObject(response.data)
                 appendHeader(response.data, 'create')
                 appendDivs(days, response.data.list)
                 appendAnalytics(days, response.data.list)
 
-                let element = document.getElementById('submit').style
-                let input = document.getElementById('cityInput')
-                input.value = null
-                element.opacity = '0'
-                element.transition = '2s'
+                applyClassName('background', 'background');
+                document.getElementById('background').style.filter = 'blur(8px)';
                 
             } else {
                 
@@ -30,11 +39,20 @@ function callWeatherApi(){
                 updateDivs(days, response.data.list)
                 updateAnalytics(days, response.data.list)
 
-                let element = document.getElementById('submit').style
+                fadeOut('submit', '0', '2s')
+
                 let input = document.getElementById('cityInput')
                 input.value = null
-                element.opacity = '0'
-                element.transition = '2s'
+                
+                changeStyle('container','backgroundColor','rgba(0,0,0, 0.5)');
+                changeStyle('container','opacity', '1');
+
+                changeStyle('flex-container', 'opacity', '1');
+                
+                changeStyle('title', 'opacity','1')
+
+                applyClassName('background', 'background');
+                document.getElementById('background').style.filter = 'blur(8px)';
 
             }
         }) 
