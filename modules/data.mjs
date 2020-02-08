@@ -30,7 +30,7 @@ function callWeatherApi(){
                 appendAnalytics(days, response.data.list)
 
                 applyClassName('background', 'background');
-                document.getElementById('background').style.filter = 'blur(8px)';
+                changeStyle('background','filter','blur(8px)')
                 
             } else {
                 
@@ -52,8 +52,8 @@ function callWeatherApi(){
                 changeStyle('title', 'opacity','1')
 
                 applyClassName('background', 'background');
-                document.getElementById('background').style.filter = 'blur(8px)';
-
+                changeStyle('background','filter','blur(8px)')
+                
             }
         }) 
         .catch((err)=>alert(err))                   
