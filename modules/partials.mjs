@@ -7,6 +7,7 @@ import { changeColor } from './methods.mjs'
 // Display City name and Country code
 function appendHeader(data, operation){
     if(operation === 'create'){
+        
         let header = document.createElement('div')
         let text = document.createTextNode(`${data.city.name}, ${data.city.country}`)
         header.appendChild(text)
@@ -17,6 +18,7 @@ function appendHeader(data, operation){
         header.style.fontFamily = 'cursive'
         changeColor(header, 'white')
         appendSearchBtn()
+
     } else {
         let header = document.getElementById(`header`)
         header.innerHTML = `${data.city.name}, ${data.city.country}`
