@@ -91,7 +91,6 @@ input[type=submit]:hover{
 
 #more_Info {
     opacity: 0;
-    transition: 2s;
 }
 
 .min{
