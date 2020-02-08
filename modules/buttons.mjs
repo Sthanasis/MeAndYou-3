@@ -15,7 +15,7 @@ function appendButton(i, div) {
     applyHoverStyle(button, 'LightSeaGreen')
 
     button.addEventListener('click', ()=> {
-    
+
         let el = document.getElementById(`analytics${i}`)
         let appender = document.getElementById('flex-container')
         let btn = document.getElementById('searchAgainBtn')
@@ -49,10 +49,13 @@ function analyticButton(i, div) {
     applyHoverStyle(button, 'LightSeaGreen')
 
     button.addEventListener('click', ()=> {
-    
+        
         let el = document.getElementById('flex-container')
+
         let appender = document.getElementById(`analytics${i}`)
+
         let day = document.getElementById(`analyticDay${i}`)
+
         let btn = document.getElementById('searchAgainBtn')
 
         if(el.style.display === 'none'){
@@ -108,6 +111,8 @@ function appendSearchBtn() {
     
     button.addEventListener('click', ()=>{
 
+        button.disabled = true;
+        
         let container = document.getElementById('container').style
         container.opacity = '0'
 
@@ -117,6 +122,12 @@ function appendSearchBtn() {
         let background = document.getElementById('background')
         background.style.filter = 'none'
 
+
+        let detailButtons = document.getElementsByClassName('showbtns')
+        for(let i = 0; i<5; i++){
+            detailButtons[i].disabled = true;
+        }
+        // when remove setTimeout turn again disable to false
         setTimeout(()=>{
             
             for(let i = 0; i < 5; i++){
