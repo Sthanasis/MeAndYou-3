@@ -14,8 +14,7 @@ function callWeatherApi(){
                 
                 fadeOut('submit', '0', '2s')
 
-                let input = document.getElementById('cityInput')
-                input.value = null
+                document.getElementById('cityInput').value = null;
                 
                 changeStyle('container','backgroundColor','rgba(0,0,0, 0.5)');
                 changeStyle('container','opacity', '1');
