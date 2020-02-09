@@ -115,15 +115,8 @@ function appendSearchBtn() {
     
     button.addEventListener('click', ()=>{
 
-<<<<<<< HEAD
-        button.disabled = true;
-        
-        let container = document.getElementById('container').style
-        container.opacity = '0'
-=======
         let container = document.getElementById('container')
         changeStyle(container.id, 'opacity', '0')
->>>>>>> 5fe21128f0efc3b8d5f15965fcb35408ae999b02
 
         let submit = document.getElementById('submit')
         changeStyle(submit.id, 'opacity', '1')
