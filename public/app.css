@@ -1,17 +1,21 @@
 body, html {
+
     height: 100%;
     margin: 0;
     background-image: url(https://i.pinimg.com/originals/b7/23/bc/b723bc52a4d351c90e7c7629dadd51c7.jpg);
     font-family: 'Times New Roman', Times, serif;
-    transition: 4s;
+
 }
 *{
     box-sizing: border-box;
 }
 .background{
-    background-image: url(https://i.pinimg.com/originals/b7/23/bc/b723bc52a4d351c90e7c7629dadd51c7.jpg);
+
+    background-image: url(https://i.pinimg.com/originals/b7/23/bc/b723bc52a4d351c90e7c7629dadd51c7.jpg);   
     height: 100%; 
+    margin: 0;
     transition: 2s;
+
 }
 
 #container {
