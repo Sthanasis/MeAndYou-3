@@ -9,7 +9,7 @@ function appendButton(i, div) {
     button.id = `btn${i}`
     button.className = 'showbtns'
     document.getElementById(div).appendChild(button)
-    button.style.marginTop = '1vw'
+    changeStyle(button.id, 'marginTop','1vw')
 
     applyStyle(button,'LightSeaGreen')
     applyHoverStyle(button, 'LightSeaGreen')
@@ -21,13 +21,15 @@ function appendButton(i, div) {
         let btn = document.getElementById('searchAgainBtn')
         appendDate(days[i], i,  'create' , 'appendAnalytics',`title`)
         if(el.style.display === 'none'){
-            el.style.display = 'flex';
-            appender.style.display = 'none';
-            btn.style.display = 'none'
+            changeStyle(el.id, 'display', 'flex')
+            changeStyle(appender.id, 'display', 'none')
+            changeStyle(btn.id, 'display', 'none')
+
         } else {
-            el.style.display = 'flex';
-            appender.style.display = 'none';
-            btn.style.display = 'none'
+
+            changeStyle(el.id, 'display', 'flex')
+            changeStyle(appender.id, 'display', 'none')
+            changeStyle(btn.id, 'display', 'none')
         }
         analyticButton(i , `more_Info`)
 
@@ -42,8 +44,8 @@ function analyticButton(i, div) {
     button.id = `backBtn${i}`
     button.className = 'analyticBtns'
     document.getElementById(div).appendChild(button)
-    button.style.marginBottom = '20px'
-    
+    changeStyle(button.id, 'marginBottom', '20px')
+  
     applyStyle(button, 'LightSeaGreen')
 
     applyHoverStyle(button, 'LightSeaGreen')
@@ -56,9 +58,11 @@ function analyticButton(i, div) {
         let btn = document.getElementById('searchAgainBtn')
 
         if(el.style.display === 'none'){
-            el.style.display = 'flex';
-            appender.style.display = 'none';
-            btn.style.display = 'block'
+
+            changeStyle(el.id, 'display', 'flex')
+            changeStyle(appender.id, 'display', 'none')
+            changeStyle(btn.id, 'display', 'block')
+
         }
 
         day.remove()
@@ -108,14 +112,14 @@ function appendSearchBtn() {
     
     button.addEventListener('click', ()=>{
 
-        let container = document.getElementById('container').style
-        container.opacity = '0'
+        let container = document.getElementById('container')
+        changeStyle(container.id, 'opacity', '0')
 
-        let submit = document.getElementById('submit').style
-        submit.opacity = '1'
+        let submit = document.getElementById('submit')
+        changeStyle(submit.id, 'opacity', '1')
 
         let background = document.getElementById('background')
-        background.style.filter = 'none'
+        changeStyle(background.id, 'filter', 'none')
 
         setTimeout(()=>{
             
