@@ -10,7 +10,7 @@ function appendAnalytics(days, data){
         let column = document.createElement('div')
         column.id = `analytics${i}`
         column.className = 'analytics'
-        document.getElementById('more_Info').appendChild(column)
+        document.getElementById('more').appendChild(column)
         let currentDay = convertToDay(day.dt_txt)
 
         data.forEach(item => {
@@ -20,15 +20,14 @@ function appendAnalytics(days, data){
                 analyticsDiv.id = `analyticsDiv${count}`
                 
                 column.appendChild(analyticsDiv)
-                changeStyle(analyticsDiv.id, 'float', 'left')
-                changeStyle(analyticsDiv.id, 'margin', '0')
                 
                 let ul = document.createElement('ul')
                 ul.id = `analyticUl${count}`
                 
                 analyticsDiv.appendChild(ul)
                 changeStyle(ul.id, 'listStyleType', 'none')
-                changeStyle(ul.id, 'float', 'left')
+                changeStyle(ul.id, 'padding', '0')
+
 
                 appendTime(item , count , 'create', `analyticUl${count}`)
                 appendIcon(item , count , 'create', 'appendAnalytics', `analyticUl${count}`)
