@@ -14,6 +14,4 @@ submitBtn.addEventListener('click',()=>{
      
     callWeatherApi();
     
-    submitBtn.disabled = true; 
-    
 })
