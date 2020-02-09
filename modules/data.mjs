@@ -8,7 +8,7 @@ let days = []
 function callWeatherApi(){
     let query = document.getElementById('cityInput').value.trim()
     if(query) {
-        axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${query}&APPID=196d16292a50e2189701f534273cad52`)
+        axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${query}&APPID=196d16292a50e2189701f534273cad52`)
         .then(response => {
             if(days.length === 0){
                 
