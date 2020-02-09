@@ -41,8 +41,7 @@ function callWeatherApi(){
 
                 fadeOut('submit', '0', '2s')
 
-                let input = document.getElementById('cityInput')
-                input.value = null
+                document.getElementById('cityInput').value = null;
                 
                 changeStyle('container','backgroundColor','rgba(0,0,0, 0.5)');
                 changeStyle('container','opacity', '1');
@@ -56,7 +55,13 @@ function callWeatherApi(){
                 
             }
         }) 
-        .catch((err)=> alert(err))                   
+        .catch((err)=> {
+
+            alert(err);
+            
+            document.getElementById('cityInput').value = null;
+
+        })                   
     } else{
         alert('Please insert a city Name')
     }
