@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel ./public/app.html",
-    "build": "parcel build ./public/app.html"
+    "build": "parcel build ./public/app.html",
+    "start": "npm run dev"
   },
   "author": "",
   "license": "ISC",
