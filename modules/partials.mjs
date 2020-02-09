@@ -22,7 +22,7 @@ function appendHeader(data, operation){
     } else {
         let header = document.getElementById(`header`)
         header.innerHTML = `${data.city.name}, ${data.city.country}`
-        appendSearchBtn()
+        document.getElementById('searchAgainBtn').disabled = false;
     }
 }
 
@@ -57,7 +57,10 @@ function updateDivs(days, data){
         appendMaxTemp(data, i , 'update')
         appendIcon(days[i], i,  'update', 'updateDivs')
         appendDescription(days[i], i, 'update','updateDivs')
-        appendButton(i , `ul${i}`)
+        let detailButtons = document.getElementsByClassName('showbtns')
+        for(let i = 0; i<5; i++){
+            detailButtons[i].disabled = false;
+        }
     }
 }
 
