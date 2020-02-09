@@ -2,14 +2,17 @@ import { days } from './data.mjs'
 import { appendDate} from './forecast.mjs'
 import { changeStyle } from './methods.mjs'
 
+// Refactor append code to createButton(id, innerText, className) method
+// Refactor createEventListener() method
 function appendButton(i, div) {
     let button = document.createElement('button')
     let text = document.createTextNode('Detail')
     button.appendChild(text)
     button.id = `btn${i}`
-    button.className = 'showbtns'
+    button.className = 'showbtns btns'
+
     document.getElementById(div).appendChild(button)
-    changeStyle(button.id, 'marginTop','1vw')
+    changeStyle(button.id, 'margin','20px')
 
     applyStyle(button,'LightSeaGreen')
     applyHoverStyle(button, 'LightSeaGreen')
@@ -42,7 +45,6 @@ function analyticButton(i, div) {
     let text = document.createTextNode('Back')
     button.appendChild(text)
     button.id = `backBtn${i}`
-    button.className = 'analyticBtns'
     document.getElementById(div).appendChild(button)
     changeStyle(button.id, 'marginBottom', '20px')
   
@@ -106,6 +108,7 @@ function appendSearchBtn() {
     let button = document.createElement('button')
     let textbtn = document.createTextNode('Search again')
     button.id = 'searchAgainBtn'
+    button.className = 'btns'
     button.style.float = 'right'
     button.style.marginRight = '10%'
     
@@ -125,24 +128,23 @@ function appendSearchBtn() {
         let background = document.getElementById('background')
         changeStyle(background.id, 'filter', 'none')
 
-
         let detailButtons = document.getElementsByClassName('showbtns')
         for(let i = 0; i<5; i++){
             detailButtons[i].disabled = true;
         }
-        // when remove setTimeout turn again disable to false
-        setTimeout(()=>{
-            
-            for(let i = 0; i < 5; i++){
-                let button = document.getElementById(`btn${i}`)
-                button.remove()
-            }
-    
-            button.remove()
-        }, 3000)   
-
+        
         let submitBtn = document.getElementById('submitButton');
         submitBtn.disabled = false;
+        applyStyle(button, 'grey')
+
+        button.disabled = true;
+
+        setTimeout(()=>{
+            let btns = document.getElementsByClassName('btns');
+            for (let i = 0; i < btns.length; i++){
+                changeStyle(btns[i].id, 'display','none')
+            }
+        },1800)
     })
 }
 
