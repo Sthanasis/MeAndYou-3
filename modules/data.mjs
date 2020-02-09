@@ -56,7 +56,7 @@ function callWeatherApi(){
                 
             }
         }) 
-        .catch((err)=>alert(err))                   
+        .catch((err)=> alert(err))                   
     } else{
         alert('Please insert a city Name')
     }

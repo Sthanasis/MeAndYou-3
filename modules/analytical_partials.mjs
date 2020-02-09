@@ -1,5 +1,5 @@
-import { convertToDay } from './methods.mjs'
-import { appendTemp, appendTime, appendFeelsLikeTemp, appendIcon, appendDescription, appendDate } from './forecast.mjs'
+import { convertToDay, changeStyle} from './methods.mjs'
+import { appendTemp, appendTime, appendFeelsLikeTemp, appendIcon, appendDescription } from './forecast.mjs'
 
 
 function appendAnalytics(days, data){
@@ -15,19 +15,21 @@ function appendAnalytics(days, data){
 
         data.forEach(item => {
             if (currentDay === convertToDay(item.dt_txt)){
+
                 let analyticsDiv = document.createElement('div')
                 analyticsDiv.id = `analyticsDiv${count}`
-                analyticsDiv.className = 'analyticsDiv'
+                
                 column.appendChild(analyticsDiv)
-                analyticsDiv.style.float = 'left'
-                analyticsDiv.style.margin = '0'
-                analyticsDiv.style.paddingRight = '3vw'
+                changeStyle(analyticsDiv.id, 'float', 'left')
+                changeStyle(analyticsDiv.id, 'margin', '0')
+                
                 let ul = document.createElement('ul')
                 ul.id = `analyticUl${count}`
-                ul.className = 'analyticUls'
+                
                 analyticsDiv.appendChild(ul)
-                ul.style.listStyleType = 'none'
-                ul.style.float = 'left'
+                changeStyle(ul.id, 'listStyleType', 'none')
+                changeStyle(ul.id, 'float', 'left')
+
                 appendTime(item , count , 'create', `analyticUl${count}`)
                 appendIcon(item , count , 'create', 'appendAnalytics', `analyticUl${count}`)
                 appendDescription(item, count , 'create' ,'appednAnalytics', `analyticUl${count}`)
@@ -35,12 +37,9 @@ function appendAnalytics(days, data){
                 appendFeelsLikeTemp(item, count, 'create', `analyticUl${count}`)
                 count++
             }
-
+            
         })
     })
-
-    let lastDiv = document.getElementById(`analyticsDiv${count - 1}`)
-    lastDiv.style.border = 'none'
 }
 
 function updateAnalytics(days, data) {
