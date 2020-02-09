@@ -108,6 +108,7 @@ function appendSearchBtn() {
     button.id = 'searchAgainBtn'
     button.style.float = 'right'
     button.style.marginRight = '10%'
+    
     applyStyle(button, 'grey')
     applyHoverStyle(button, 'grey')
     button.appendChild(textbtn)

@@ -12,45 +12,19 @@ function callWeatherApi(){
         .then(response => {
             if(days.length === 0){
                 
-                fadeOut('submit', '0', '2s')
-
-                document.getElementById('cityInput').value = null;
-                
-                changeStyle('container','backgroundColor','rgba(0,0,0, 0.5)');
-                changeStyle('container','opacity', '1');
-
-                changeStyle('flex-container', 'opacity', '1');
-
-                changeStyle('title', 'opacity','1')
-
+                containerEmerge()
                 createDataObject(response.data)
                 appendHeader(response.data, 'create')
                 appendDivs(days, response.data.list)
                 appendAnalytics(days, response.data.list)
-
-                applyClassName('background', 'background');
-                changeStyle('background','filter','blur(8px)')
                 
             } else {
-                
+
+                containerEmerge()
                 createDataObject(response.data)
                 appendHeader(response.data, 'update')
                 updateDivs(days, response.data.list)
                 updateAnalytics(days, response.data.list)
-
-                fadeOut('submit', '0', '2s')
-
-                document.getElementById('cityInput').value = null;
-                
-                changeStyle('container','backgroundColor','rgba(0,0,0, 0.5)');
-                changeStyle('container','opacity', '1');
-
-                changeStyle('flex-container', 'opacity', '1');
-                
-                changeStyle('title', 'opacity','1')
-
-                applyClassName('background', 'background');
-                changeStyle('background','filter','blur(8px)')
                 
             }
         }) 
@@ -87,4 +61,16 @@ function createDataObject(data){
     }
 }
 
+function containerEmerge(){
+
+    fadeOut('submit', '0', '2s');
+    document.getElementById('cityInput').value = null;   
+    changeStyle('container','backgroundColor','rgba(0,0,0, 0.5)');
+    changeStyle('container','opacity', '1');
+    changeStyle('flex-container', 'opacity', '1');  
+    changeStyle('title', 'opacity','1')
+    applyClassName('background', 'background');
+    changeStyle('background','filter','blur(8px)')
+
+}
 export { callWeatherApi, days }
