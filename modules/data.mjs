@@ -71,6 +71,10 @@ function containerEmerge(){
     changeStyle('title', 'opacity','1')
     applyClassName('background', 'background');
     changeStyle('background','filter','blur(8px)')
+    let btns = document.getElementsByClassName('btns');
+    for (let i = 0; i < btns.length; i++){
+        changeStyle(btns[i].id, 'display','block')
+    }
 
 }
 export { callWeatherApi, days }
