@@ -38,9 +38,6 @@ function appendAnalytics(days, data){
 
         })
     })
-
-    let lastDiv = document.getElementById(`analyticsDiv${count - 1}`)
-    lastDiv.style.border = 'none'
 }
 
 function updateAnalytics(days, data) {
