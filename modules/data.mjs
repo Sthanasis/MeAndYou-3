@@ -54,9 +54,12 @@ function callWeatherApi(){
                 applyClassName('background', 'background');
                 document.getElementById('background').style.filter = 'blur(8px)';
 
+                let submitBtn = document.getElementById('submitButton');
+                submitBtn.disabled = true;
+
             }
         }) 
-        .catch((err)=>alert(err))                   
+        .catch((err)=> alert(err))                   
     } else{
         alert('Please insert a city Name')
     }
