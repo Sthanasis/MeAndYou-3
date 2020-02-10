@@ -12,7 +12,7 @@ function appendButton(i, div) {
     button.className = 'showbtns btns'
 
     document.getElementById(div).appendChild(button)
-    changeStyle(button.id, 'margin','20px')
+    changeStyle(button.id, 'margin','1.2em')
 
     applyStyle(button,'LightSeaGreen')
     applyHoverStyle(button, 'LightSeaGreen')
@@ -46,7 +46,7 @@ function analyticButton(i, div) {
     button.appendChild(text)
     button.id = `backBtn${i}`
     document.getElementById(div).appendChild(button)
-    changeStyle(button.id, 'marginBottom', '20px')
+    changeStyle(button.id, 'marginBottom', '1.2em')
   
     applyStyle(button, 'LightSeaGreen')
 
@@ -79,13 +79,13 @@ function analyticButton(i, div) {
 function applyStyle(button, colour) { 
     button.style.backgroundColor = 'white'
     button.style.border = '2px solid ' + colour
-    button.style.borderRadius = '5px'
+    button.style.borderRadius = '.4em'
     button.style.color = colour
-    button.style.padding = '5px 10px'
+    button.style.padding = '.4em .6em'
     button.style.textAlign = 'center'
     button.style.textDecoration = 'none'
     button.style.display = 'inline-block'
-    button.style.fontSize = '15px'
+    button.style.fontSize = '1em'
     button.style.webkitTransitionDuration = '.4s'
     button.style.cursor = 'pointer'
 }

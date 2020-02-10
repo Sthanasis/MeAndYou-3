@@ -13,7 +13,7 @@ function appendHeader(data, operation){
         header.appendChild(text)
         header.id = `header`
         document.getElementById('title').appendChild(header)
-        header.style.marginTop = '5px'
+        header.style.marginTop = '.4em'
         header.style.fontSize = '200%'
         header.style.fontFamily = 'cursive'
         changeColor(header, 'white')
@@ -36,7 +36,7 @@ function appendDivs(days, data){
         column.id = `ul${i}`
         column.className = 'columns'
         document.getElementById('flex-container').appendChild(column)
-        column.style.margin = '20px 0'
+        column.style.margin = '1.2em 0'
         appendDate(item, i, 'create', 'appendDivs',`ul${i}`)
         appendMinTemp(data, i ,'create', `ul${i}`)
         appendMaxTemp(data, i ,'create', `ul${i}`)

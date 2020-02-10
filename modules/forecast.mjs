@@ -13,8 +13,8 @@ function appendDate(item, i,  operation, method, div){
             day.appendChild(text)
             document.getElementById(div).appendChild(day)
             day.style.fontFamily = '"Comic Sans MS", cursive, sans-serif'
-            day.style.letterSpacing = '1px';    
-            day.style.paddingBottom = '20px'
+            day.style.letterSpacing = '.2em';    
+            day.style.paddingBottom = '1.2em'
             changeColor(day, '#FFF8DC')
         } else {
             let day = document.createElement('h3')
@@ -22,9 +22,9 @@ function appendDate(item, i,  operation, method, div){
             day.id = `analyticDay${i}`
             day.appendChild(text)
             day.style.fontFamily = '"Comic Sans MS", cursive, sans-serif'
-            day.style.letterSpacing = '1px';    
+            day.style.letterSpacing = '.1em';    
             document.getElementById(div).appendChild(day)
-            day.style.padding = '20px 0'
+            day.style.padding = '1.2em 0'
             day.style.margin = '0'
             changeColor(day, '#FFF8DC')
         }
@@ -150,7 +150,7 @@ function appendTemp(item, i,  operation, div){
         temp.appendChild(text)
         temp.id = `temp${i}`
         temp.className = 'temperatures'
-        temp.style.marginTop = '10px'
+        temp.style.marginTop = '.8em'
         changeColor(temp , '#FFF8DC')
         document.getElementById(div).appendChild(temp)
     } else {
