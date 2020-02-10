@@ -4,6 +4,10 @@ body, html {
     margin: 0;
     background-image: url(https://i.pinimg.com/originals/b7/23/bc/b723bc52a4d351c90e7c7629dadd51c7.jpg);
     font-family: 'Times New Roman', Times, serif;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 
 }
 *{
@@ -14,7 +18,12 @@ body, html {
     background-image: url(https://i.pinimg.com/originals/b7/23/bc/b723bc52a4d351c90e7c7629dadd51c7.jpg);   
     height: 100%; 
     margin: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     transition: 2s;
+
 
 }
 
