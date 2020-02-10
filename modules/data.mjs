@@ -69,7 +69,6 @@ function containerEmerge(){
     changeStyle('container','opacity', '1');
     changeStyle('flex-container', 'opacity', '1');  
     changeStyle('title', 'opacity','1')
-    applyClassName('background', 'background');
     changeStyle('background','filter','blur(8px)')
     let btns = document.getElementsByClassName('btns');
     for (let i = 0; i < btns.length; i++){
