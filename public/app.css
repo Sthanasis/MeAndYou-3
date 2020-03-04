@@ -119,21 +119,27 @@ input[type=submit]:hover{
 
 @media only screen and (max-width: 400px) {
     #container {
-        width:100%;
+        width: 100%;
     }
     #header {
-        font-size: small;
+        font-size: xx-small;
     }
     #flex-container {
-        width:100%;
-        font-size: small;
+        width: 100%;
+        justify-content: center;
+        font-size: xx-small;
 
     }
     #more_Info {
 
-        width:100%;
-        font-size: x-small;
+        width: 100%;
+        font-size: xx-small;
+        justify-content: center;
+
     
+    }
+    li {
+        font-size: xx-small;
     }
 } 
 
@@ -144,11 +150,15 @@ input[type=submit]:hover{
     #flex-container {
         width:100%;
         font-size: small;
+        justify-content: center;
+
     }
     #more_Info {
 
         width:100%;
-        font-size: small;
+        font-size: x-small;
+        justify-content: center;
+
     
     }
     #header {
