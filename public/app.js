@@ -14,4 +14,7 @@ submitBtn.addEventListener('click',()=>{
      
     callWeatherApi();
     
+    if(document.getElementById('flex-container').style.display === 'none'){
+        document.getElementById('flex-container').style.display = 'flex'
+    }
 })

@@ -144,6 +144,7 @@ function appendSearchBtn() {
             for (let i = 0; i < btns.length; i++){
                 changeStyle(btns[i].id, 'display','none')
             }
+            document.getElementById("flex-container").style.display = 'none'
         },1800)
     })
 }
