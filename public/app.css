@@ -116,3 +116,42 @@ input[type=submit]:hover{
     justify-content: space-evenly;
 
 }
+
+@media only screen and (max-width: 400px) {
+    #container {
+        width:100%;
+    }
+    #header {
+        font-size: small;
+    }
+    #flex-container {
+        width:100%;
+        font-size: small;
+
+    }
+    #more_Info {
+
+        width:100%;
+        font-size: x-small;
+    
+    }
+} 
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    #container {
+        width:100%;
+    }
+    #flex-container {
+        width:100%;
+        font-size: small;
+    }
+    #more_Info {
+
+        width:100%;
+        font-size: small;
+    
+    }
+    #header {
+        font-size: x-small;
+    }
+}
