@@ -122,17 +122,17 @@ input[type=submit]:hover{
         width:100%;
     }
     #header {
-        font-size: small;
+        font-size: xx-small;
     }
     #flex-container {
         width:100%;
-        font-size: small;
+        font-size: xx-small;
 
     }
     #more_Info {
 
         width:100%;
-        font-size: small;
+        font-size: xx-small;
     
     }
 } 
@@ -143,15 +143,15 @@ input[type=submit]:hover{
     }
     #flex-container {
         width:100%;
-        font-size: small;
+        font-size: x-small;
     }
     #more_Info {
 
         width:100%;
-        font-size: small;
+        font-size: x-small;
     
     }
     #header {
-        font-size: small;
+        font-size: x-small;
     }
 }
