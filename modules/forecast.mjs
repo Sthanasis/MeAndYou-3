@@ -169,7 +169,7 @@ function appendTime(item, i , operation , div){
         time.className = 'time'
         document.getElementById(div).appendChild(time)
         time.style.fontFamily = 'monospace';
-        time.style.fontSize = 'x-large';
+        
         changeColor(time , '#FFF8DC')
     } else {
         let time = document.getElementById(`time${i}`)

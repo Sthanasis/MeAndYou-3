@@ -34,7 +34,7 @@ body, html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
+    z-index: 1;
     text-align: center;
     margin: 0 auto 0 auto;
     border-radius: 2px;
@@ -60,7 +60,7 @@ input[type=text]:focus {
 }
 
 input[type=submit] {
-    z-index: 2;
+    z-index: 1;
     position: absolute;
     text-align: center;
     top: 50%;
@@ -119,27 +119,21 @@ input[type=submit]:hover{
 
 @media only screen and (max-width: 400px) {
     #container {
-        width: 100%;
+        width:100%;
     }
     #header {
-        font-size: xx-small;
+        font-size: small;
     }
     #flex-container {
-        width: 100%;
-        justify-content: center;
-        font-size: xx-small;
+        width:100%;
+        font-size: small;
 
     }
     #more_Info {
 
-        width: 100%;
-        font-size: xx-small;
-        justify-content: center;
-
+        width:100%;
+        font-size: small;
     
-    }
-    li {
-        font-size: xx-small;
     }
 } 
 
@@ -150,18 +144,14 @@ input[type=submit]:hover{
     #flex-container {
         width:100%;
         font-size: small;
-        justify-content: center;
-
     }
     #more_Info {
 
         width:100%;
-        font-size: x-small;
-        justify-content: center;
-
+        font-size: small;
     
     }
     #header {
-        font-size: x-small;
+        font-size: small;
     }
 }
