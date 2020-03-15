@@ -2,6 +2,8 @@ import { callWeatherApi } from '../modules/data.mjs';
 
 let submitBtn = document.getElementById('submitButton');
 let input = document.getElementById('cityInput');
+let body = document.querySelector('body')
+body.className = 'someClass'
 
 input.addEventListener('keyup', (event)=>{
     event.preventDefault();
